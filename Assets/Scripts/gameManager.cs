@@ -9,7 +9,7 @@ public class gameManager : MonoBehaviour
     public GameObject zombieSpawner;
     public static PlayerController player;
     //Timer and text code provided by youtube guide https://youtu.be/x-C95TuQtf0
-    public Text timer, health;
+    public Text timer, health, gold;
     public float startTime;
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,7 @@ public class gameManager : MonoBehaviour
         string seconds = (t % 60).ToString("f2");
         timer.text = "TIME: " + minutes + ":" + seconds;
         health.text = "Health:" + player.getHealth().ToString() + "%";
+        gold.text = player.getGold().ToString() + " Gold";
         if (player.getHealth() == 0)
         {
             PlayerPrefs.SetFloat("CurrentTime", t);

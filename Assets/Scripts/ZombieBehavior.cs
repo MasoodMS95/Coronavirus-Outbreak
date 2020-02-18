@@ -7,6 +7,7 @@ public class ZombieBehavior : MonoBehaviour
     private float speed = 2f;
     public GameObject player;
     public GameObject blood;
+    public GameObject money;
     public AudioClip hit;
     private AudioSource hitsound;
     private float xRange = 10f;
@@ -61,6 +62,14 @@ public class ZombieBehavior : MonoBehaviour
             health -= Random.Range(10, 40);
             GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
             Destroy(oof, 3);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (Random.value > 0.6) {
+            GameObject goldcoin = (GameObject)Instantiate(money, transform.position, money.transform.rotation);
+            Destroy(goldcoin, 5);
         }
     }
 }
