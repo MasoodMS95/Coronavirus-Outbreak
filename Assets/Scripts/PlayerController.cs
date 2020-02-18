@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -85,6 +86,10 @@ public class PlayerController : MonoBehaviour
             System.Random rnd = new System.Random();
             gold += rnd.Next(100, 501);
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name.StartsWith("Door"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
     public void Awake()
