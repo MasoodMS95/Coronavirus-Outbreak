@@ -262,7 +262,7 @@ MonoBehaviour:
     type: 3}
   timer: {fileID: 163991575}
   health: {fileID: 503131007}
-  gold: {fileID: 0}
+  gold: {fileID: 1899615835}
   startTime: 0
 --- !u!1 &163991573
 GameObject:
