@@ -87,9 +87,17 @@ public class PlayerController : MonoBehaviour
             gold += rnd.Next(100, 501);
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.name.StartsWith("Door"))
+        if (collision.gameObject.name.StartsWith("DoorToKey"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        if (collision.gameObject.name.StartsWith("DoorToFriend"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        }
+        if (collision.gameObject.name.StartsWith("DoorToStage2"))
+        {
+            SceneManager.LoadScene(3);
         }
     }
     public void Awake()
