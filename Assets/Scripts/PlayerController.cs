@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 3.5f;
     public float health = 100f;
-    public int gold = 0;
+    private float gold = PlayerPrefs.GetFloat("Gold", 0);
     public GameObject blood, bullet;
     public float horizontalInput;
     public float verticalInput;
@@ -85,6 +85,7 @@ public class PlayerController : MonoBehaviour
         {
             System.Random rnd = new System.Random();
             gold += rnd.Next(100, 501);
+            PlayerPrefs.SetFloat("Gold", gold);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name.StartsWith("DoorToKey"))

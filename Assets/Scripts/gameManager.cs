@@ -26,7 +26,7 @@ public class gameManager : MonoBehaviour
         string seconds = (t % 60).ToString("f2");
         timer.text = "TIME: " + minutes + ":" + seconds;
         health.text = "Health:" + player.getHealth().ToString() + "%";
-        gold.text = player.getGold().ToString() + " Gold";
+        gold.text = PlayerPrefs.GetFloat("Gold", 0).ToString() + " Gold";
         if (player.getHealth() == 0)
         {
             PlayerPrefs.SetFloat("CurrentTime", t);
