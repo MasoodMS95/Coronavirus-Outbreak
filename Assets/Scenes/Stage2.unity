@@ -371,7 +371,7 @@ Light:
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 50
-  m_SpotAngle: 90
+  m_SpotAngle: 60
   m_InnerSpotAngle: 15
   m_CookieSize: 10
   m_Shadows:
@@ -445,7 +445,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1545762358}
-  offset: {x: 0, y: 3, z: -4}
   diffx: 0
   spotangle: 0
 --- !u!1 &316682109
