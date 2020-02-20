@@ -55,7 +55,7 @@ public class gameManager : MonoBehaviour
     }
     void spawn()
     {
-        /* 
+        /*
          * Spawn is a random Vector3 that is focused on x and z
          * generating the range of -10 to 10 for the x and z.
          * Y wil always be set to zero.

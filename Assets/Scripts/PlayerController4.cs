@@ -6,6 +6,7 @@ public class PlayerController4 : MonoBehaviour
 {
   public float speed = 3.5f;
   public float health = 100f;
+  public int gold = 0;
   public GameObject blood, bullet;
   public float horizontalInput;
   public float verticalInput;
@@ -84,8 +85,14 @@ public class PlayerController4 : MonoBehaviour
   // {
   //     gameManager.player = this;
   // }
-  // public float getHealth()
-  // {
-  //     return health;
-  // }
+  public float getHealth()
+  {
+      return health;
+  }
+
+  public float getGold()
+  {
+      return gold;
+  }
+
 }
