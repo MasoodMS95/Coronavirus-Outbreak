@@ -256,7 +256,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 128052235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9dbad964a971614b9b35cb5a56b37a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 946f39948b0ab4da2ba43c8e7becbc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   zombieSpawner: {fileID: 4493914613880827488, guid: 6dc4cf4496348884d8ee27743ae38562,
