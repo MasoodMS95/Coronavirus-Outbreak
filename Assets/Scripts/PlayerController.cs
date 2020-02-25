@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public float speed = 3.5f;
     public float health = PlayerPrefs.GetFloat("Health", 100f);
     private float gold = PlayerPrefs.GetFloat("Gold", 0);
+    private int hasKey = PlayerPrefs.GetInt("HasKey", 0);
+    // PlayerPrefs.GetInt("HasKey")==1?true:false;
     public GameObject blood, bullet;
     public float horizontalInput;
     public float verticalInput;
@@ -87,6 +89,11 @@ public class PlayerController : MonoBehaviour
             System.Random rnd = new System.Random();
             gold += rnd.Next(100, 501);
             PlayerPrefs.SetFloat("Gold", gold);
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name.StartsWith("key_gold"))
+        {
+            PlayerPrefs.SetInt("HasKey", 1);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name.StartsWith("DoorToKey"))
