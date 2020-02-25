@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class gameManager : MonoBehaviour
+public class gameManager2 : MonoBehaviour
 {
     public GameObject zombieSpawner;
     public static PlayerController player;
@@ -25,7 +25,7 @@ public class gameManager : MonoBehaviour
         string minutes = ((int)(t / 60)).ToString();
         string seconds = (t % 60).ToString("f2");
         timer.text = "TIME: " + minutes + ":" + seconds;
-        health.text = "Health:" + PlayerPrefs.GetFloat("Health", 100f).ToString() + "%";
+        health.text = "Health:" + player.getHealth().ToString() + "%";
         gold.text = PlayerPrefs.GetFloat("Gold", 0).ToString() + " Gold";
         if (player.getHealth() == 0)
         {
@@ -38,19 +38,7 @@ public class gameManager : MonoBehaviour
     {
         for(;;){
             spawn();
-            float seconds = ((Time.time - startTime) % 60);
-            if(seconds < 10)
-            {
-                yield return new WaitForSeconds(Random.Range(1, 3));
-            }
-            if(seconds > 10 && seconds < 20)
-            {
-                yield return new WaitForSeconds(Random.Range(.5f,1.5f));
-            }
-            if(seconds > 20)
-            {
-                yield return new WaitForSeconds(Random.Range(.1f, .5f));
-            }
+            yield return new WaitForSeconds(Random.Range(3, 5));
         }
     }
     void spawn()
