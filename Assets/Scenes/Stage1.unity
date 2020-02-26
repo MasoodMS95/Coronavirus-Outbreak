@@ -8074,6 +8074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 872901432}
+  posy: 25
 --- !u!1001 &274678917
 PrefabInstance:
   m_ObjectHideFlags: 0
