@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 3.5f;
-    public float health = 100f;
+    public float health = PlayerPrefs.GetFloat("Health", 100f);
     private float gold = PlayerPrefs.GetFloat("Gold", 0);
+    private int hasKey = PlayerPrefs.GetInt("HasKey", 0);
     public GameObject blood, bullet;
     public float horizontalInput;
     public float verticalInput;
@@ -24,9 +25,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(health < 0)
+        if(PlayerPrefs.GetFloat("Health", 100f) < 0)
         {
-            health = 0;
+            PlayerPrefs.SetFloat("Health", 0);
         }
         //Provided by https://answers.unity.com/questions/653798/character-always-facing-mouse-cursor-position.html
         //The following code makes the player aim at the mouse.
@@ -72,7 +73,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.name.StartsWith("Zombie"))
         {
-            health = health - Random.Range(1, 3);
+            health -= Random.Range(1, 3);
+            PlayerPrefs.SetFloat("Health", health);
             GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
             Destroy(oof, 3);
             float x = Random.Range(0, 3);
@@ -88,30 +90,58 @@ public class PlayerController : MonoBehaviour
             PlayerPrefs.SetFloat("Gold", gold);
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.name.StartsWith("key_gold"))
+        {
+            hasKey = 1;
+            PlayerPrefs.SetInt("HasKey", hasKey);
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name.StartsWith("SedanSmall"))
+        {
+            if (hasKey == 1)
+            {
+                print("car enterable");
+            }
+            else
+            {
+                print("key is missing");
+            }
+        }
+        if (collision.gameObject.name.StartsWith("FriendHouse"))
+        {
+            SceneManager.LoadScene(6);
+        }
         if (collision.gameObject.name.StartsWith("DoorToKey"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(4);
         }
         if (collision.gameObject.name.StartsWith("DoorToFriend"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            SceneManager.LoadScene(5);
+        }
+        if (collision.gameObject.name.StartsWith("DoorToOutside"))
+        {
+            if (PlayerPrefs.GetInt("HasKey") == 1)
+            {
+                SceneManager.LoadScene(7);
+            }
         }
         if (collision.gameObject.name.StartsWith("DoorToStage2"))
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(6);
         }
     }
     public void Awake()
     {
-        gameManager.player = this;
+        gameManager2.player = this;
     }
     public float getHealth()
     {
-        return health;
+        return PlayerPrefs.GetFloat("Health", 100f);
     }
     public float getGold()
     {
-        return gold;
+        return PlayerPrefs.GetFloat("Gold", 0);
     }
 
 }

@@ -3570,7 +3570,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: e69748a4f24d78f4e9df2a161f448895, type: 3}
       propertyPath: m_Name
-      value: Suburb House (4)
+      value: FriendHouse
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e69748a4f24d78f4e9df2a161f448895, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8074,6 +8074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 872901432}
+  posy: 25
 --- !u!1001 &274678917
 PrefabInstance:
   m_ObjectHideFlags: 0
