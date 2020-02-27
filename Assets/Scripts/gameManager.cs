@@ -11,6 +11,9 @@ public class gameManager : MonoBehaviour
     //Timer and text code provided by youtube guide https://youtu.be/x-C95TuQtf0
     public Text timer, health, gold;
     public float startTime;
+    public float spawnDist = 10;
+    public float zombiey = 0;
+    public float stage4 = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +63,13 @@ public class gameManager : MonoBehaviour
          * generating the range of -10 to 10 for the x and z.
          * Y wil always be set to zero.
          */
-        Vector3 spawn = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
-        Instantiate(zombieSpawner, spawn, zombieSpawner.transform.rotation);
-    }
+        Vector3 spawn = new Vector3(Random.Range(player.transform.position.x-spawnDist, player.transform.position.x + spawnDist), zombiey, Random.Range(player.transform.position.z-spawnDist, player.transform.position.z+spawnDist));
+        if (stage4 == 1){
+          Vector3 spawnRot = new Vector3(0, zombieSpawner.transform.rotation.y, zombieSpawner.transform.rotation.z);
+          Instantiate(zombieSpawner, spawn, Quaternion.Euler(spawnRot));
+        }
+        else{
+          Instantiate(zombieSpawner, spawn, zombieSpawner.transform.rotation);
+        }
+      }
 }

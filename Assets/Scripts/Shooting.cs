@@ -5,9 +5,12 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     float speed = 20f;
+    private GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
+      player = GameObject.Find("Player");
 
     }
 
@@ -18,11 +21,11 @@ public class Shooting : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, 1, transform.position.z);
         }
-        if(transform.position.x > 20 || transform.position.x < -20)
+        if(transform.position.x > (player.transform.position.x+50) || transform.position.x < (player.transform.position.x-50))
         {
             Destroy(gameObject);
         }
-        if (transform.position.z > 20 || transform.position.z < -20)
+        if (transform.position.z > (player.transform.position.z+50) || transform.position.z < player.transform.position.z-50)
         {
             Destroy(gameObject);
         }

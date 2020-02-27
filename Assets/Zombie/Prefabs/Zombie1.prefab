@@ -1733,6 +1733,8 @@ MonoBehaviour:
   blood: {fileID: 1011661578870539620, guid: fe4965491bb3d5f4bb98828ba0245093, type: 3}
   money: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
   hit: {fileID: 8300000, guid: b65e3669dee42784b9bb591b5cbae103, type: 3}
+  xRange: 10
+  zRange: 10
 --- !u!54 &-4293027411917677035
 Rigidbody:
   m_ObjectHideFlags: 0
