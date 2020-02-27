@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     public float health = PlayerPrefs.GetFloat("Health", 100f);
     private float gold = PlayerPrefs.GetFloat("Gold", 0);
     private int hasKey = PlayerPrefs.GetInt("HasKey", 0);
-    // PlayerPrefs.GetInt("HasKey")==1?true:false;
     public GameObject blood, bullet;
     public float horizontalInput;
     public float verticalInput;
@@ -93,20 +92,43 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.name.StartsWith("key_gold"))
         {
-            PlayerPrefs.SetInt("HasKey", 1);
+            hasKey = 1;
+            PlayerPrefs.SetInt("HasKey", hasKey);
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name.StartsWith("SedanSmall"))
+        {
+            if (hasKey == 1)
+            {
+                print("car enterable");
+            }
+            else
+            {
+                print("key is missing");
+            }
+        }
+        if (collision.gameObject.name.StartsWith("FriendHouse"))
+        {
+            SceneManager.LoadScene(6);
         }
         if (collision.gameObject.name.StartsWith("DoorToKey"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(4);
         }
         if (collision.gameObject.name.StartsWith("DoorToFriend"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            SceneManager.LoadScene(5);
+        }
+        if (collision.gameObject.name.StartsWith("DoorToOutside"))
+        {
+            if (PlayerPrefs.GetInt("HasKey") == 1)
+            {
+                SceneManager.LoadScene(7);
+            }
         }
         if (collision.gameObject.name.StartsWith("DoorToStage2"))
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(6);
         }
     }
     public void Awake()
