@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     public float speed = 3.5f;
     public float health = PlayerPrefs.GetFloat("Health", 100f);
     private float gold = PlayerPrefs.GetFloat("Gold", 0);
-    private int hasKey = PlayerPrefs.GetInt("HasKey", 0);
     public GameObject blood, bullet;
     public float horizontalInput;
     public float verticalInput;
@@ -16,10 +15,25 @@ public class PlayerController : MonoBehaviour
     private AudioSource hitsound;
     private float xRange = 10f;
     private float zRange = 10f;
+    private AsyncOperation asyncLoadLevel;
     // Start is called before the first frame update
     void Start()
     {
         hitsound = GetComponent<AudioSource>();
+        if (SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            var x = PlayerPrefs.GetFloat("x");
+            var y = PlayerPrefs.GetFloat("y");
+            var z = PlayerPrefs.GetFloat("z");
+            Vector3 posVec = new Vector3(x, y, z);
+            gameManager2.player.transform.position = posVec;
+        } else if (SceneManager.GetActiveScene().buildIndex == 7)
+        {
+            if (PlayerPrefs.GetInt("HasKey", 0) == 1)
+            {
+                gameManager2.player.transform.position = new Vector3(-77, 1, -207);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -92,13 +106,12 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.name.StartsWith("key_gold"))
         {
-            hasKey = 1;
-            PlayerPrefs.SetInt("HasKey", hasKey);
+            PlayerPrefs.SetInt("HasKey", 1);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.name.StartsWith("SedanSmall"))
         {
-            if (hasKey == 1)
+            if (PlayerPrefs.GetInt("HasKey", 0) == 1)
             {
                 print("car enterable");
             }
@@ -113,15 +126,21 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.name.StartsWith("DoorToKey"))
         {
+            PlayerPrefs.SetFloat("x", this.transform.position.x);
+            PlayerPrefs.SetFloat("y", this.transform.position.y);
+            PlayerPrefs.SetFloat("z", this.transform.position.z+1);
             SceneManager.LoadScene(4);
         }
         if (collision.gameObject.name.StartsWith("DoorToFriend"))
         {
+            PlayerPrefs.SetFloat("x", this.transform.position.x);
+            PlayerPrefs.SetFloat("y", this.transform.position.y);
+            PlayerPrefs.SetFloat("z", this.transform.position.z-1);
             SceneManager.LoadScene(5);
         }
         if (collision.gameObject.name.StartsWith("DoorToOutside"))
         {
-            if (PlayerPrefs.GetInt("HasKey") == 1)
+            if (PlayerPrefs.GetInt("HasKey", 0) == 1)
             {
                 SceneManager.LoadScene(7);
             }
@@ -134,11 +153,15 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(8);
         }
+        if (collision.gameObject.name.StartsWith("Tree_Oak1 (12)")){
+            SceneManager.LoadScene(2);
+        }
     }
     public void Awake()
     {
         gameManager2.player = this;
     }
+
     public float getHealth()
     {
         return PlayerPrefs.GetFloat("Health", 100f);
