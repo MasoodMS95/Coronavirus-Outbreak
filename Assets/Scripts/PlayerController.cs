@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.name.StartsWith("FriendHouse"))
         {
-            SceneManager.LoadScene(6);
+            SceneManager.LoadScene(12);
         }
         if (collision.gameObject.name.StartsWith("DoorToKey"))
         {
@@ -155,6 +155,10 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.name.StartsWith("Tree_Oak1 (12)")){
             SceneManager.LoadScene(2);
+        }
+        if (collision.gameObject.name.StartsWith("Tree_C_V01_Leaves02"))
+        {
+            SceneManager.LoadScene(14);
         }
     }
     public void Awake()
