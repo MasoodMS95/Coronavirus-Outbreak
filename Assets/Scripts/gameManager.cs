@@ -8,6 +8,7 @@ public class gameManager : MonoBehaviour
 {
     public GameObject zombieSpawner;
     public static PlayerController player;
+    public GameObject Player;
     //Timer and text code provided by youtube guide https://youtu.be/x-C95TuQtf0
     public Text timer, health, gold;
     public float startTime;
@@ -63,7 +64,7 @@ public class gameManager : MonoBehaviour
          * generating the range of -10 to 10 for the x and z.
          * Y wil always be set to zero.
          */
-        Vector3 spawn = new Vector3(Random.Range(player.transform.position.x-spawnDist, player.transform.position.x + spawnDist), zombiey, Random.Range(player.transform.position.z-spawnDist, player.transform.position.z+spawnDist));
+        Vector3 spawn = new Vector3(Random.Range(Player.transform.position.x-spawnDist, Player.transform.position.x + spawnDist), zombiey, Random.Range(Player.transform.position.z-spawnDist, Player.transform.position.z+spawnDist));
         if (stage4 == 1){
           Vector3 spawnRot = new Vector3(0, zombieSpawner.transform.rotation.y, zombieSpawner.transform.rotation.z);
           Instantiate(zombieSpawner, spawn, Quaternion.Euler(spawnRot));

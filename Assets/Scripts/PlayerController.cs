@@ -115,6 +115,10 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(6);
         }
+        if (collision.gameObject.name.StartsWith("Army_Bunker"))
+        {
+            SceneManager.LoadScene(8);
+        }
     }
     public void Awake()
     {
