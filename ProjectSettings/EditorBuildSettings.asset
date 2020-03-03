@@ -29,4 +29,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage1.unity
     guid: 1bdaba12748c6704da92cb46084e274b
+  - enabled: 1
+    path: Assets/Scenes/Stage4.2.unity
+    guid: afdf7603fc47a4ec0972a986728f572d
+  - enabled: 1
+    path: Assets/Scenes/Shop Screen.unity
+    guid: 7f0e4e5379e6d42419ba9eb7793eb313
+  - enabled: 1
+    path: Assets/Scenes/Level Screen - Stage1.unity
+    guid: 6ffac77b45a584996821acdeba4af869
+  - enabled: 1
+    path: Assets/Scenes/Stage4.unity
+    guid: 6081b839c74e3b24488c939423f70fe1
   m_configObjects: {}
