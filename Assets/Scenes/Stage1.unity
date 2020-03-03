@@ -29086,7 +29086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84692ce49f8dae41967e37f9ff7cc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 100
   health: 100
   blood: {fileID: 1011661578870539620, guid: fe4965491bb3d5f4bb98828ba0245093, type: 3}
   bullet: {fileID: 6767709806910518382, guid: e34088da824a8c24697d70806911efa3, type: 3}
