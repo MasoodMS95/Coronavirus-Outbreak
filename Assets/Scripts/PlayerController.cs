@@ -119,6 +119,9 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(8);
         }
+        if (collision.gameObject.name.StartsWith("Tree_Oak1 (12)")){
+            SceneManager.LoadScene(2);
+        }
     }
     public void Awake()
     {
