@@ -30,7 +30,6 @@ public class gameManager2 : MonoBehaviour
         if (player.getHealth() == 0)
         {
             PlayerPrefs.SetFloat("CurrentTime", t);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
