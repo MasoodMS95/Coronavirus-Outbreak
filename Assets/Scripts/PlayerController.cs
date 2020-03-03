@@ -16,19 +16,16 @@ public class PlayerController : MonoBehaviour
     private AudioSource hitsound;
     private float xRange = 10f;
     private float zRange = 10f;
-    private CharacterController controller;
-
     // Start is called before the first frame update
     void Start()
     {
         hitsound = GetComponent<AudioSource>();
-        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerPrefs.GetFloat("Health", 100f) < 0)
+        if(PlayerPrefs.GetFloat("Health", 100f) < 0)
         {
             PlayerPrefs.SetFloat("Health", 0);
         }
@@ -42,6 +39,24 @@ public class PlayerController : MonoBehaviour
             transform.LookAt(hit.point);
         }
 
+        //The following code makes sure the player does not go over map.
+        // if (transform.position.x < -xRange)
+        // {
+        //     transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+        // }
+        // if (transform.position.x > xRange)
+        // {
+        //     transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+        // }
+        // if(transform.position.z < -zRange)
+        // {
+        //     transform.position = new Vector3(transform.position.x, transform.position.y, -zRange);
+        // }
+        // if(transform.position.z > zRange)
+        // {
+        //     transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
+        // }
+
         //Shooting Mechanics
         if (Input.GetMouseButtonDown(0))
         {
@@ -51,8 +66,8 @@ public class PlayerController : MonoBehaviour
         //The following code ensures the player moves around despite direction it faces (which is towards mouse)
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-        controller.Move(Vector3.forward * Time.deltaTime * speed * verticalInput);
-        controller.Move(Vector3.right * Time.deltaTime * speed * horizontalInput);
+        transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput, Space.World);
+        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput, Space.World);
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -63,7 +78,7 @@ public class PlayerController : MonoBehaviour
             GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
             Destroy(oof, 3);
             float x = Random.Range(0, 3);
-            if (x == 1)
+            if(x == 1)
             {
                 hitsound.PlayOneShot(hit, 1.0f);
             }
