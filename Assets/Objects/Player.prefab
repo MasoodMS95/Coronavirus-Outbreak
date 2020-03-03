@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5720791434960800751}
   - component: {fileID: 5720791434960800746}
   - component: {fileID: 5720791434960800736}
+  - component: {fileID: 2122890589970982496}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -126,7 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   health: 100
-  gold: 0
   blood: {fileID: 1011661578870539620, guid: fe4965491bb3d5f4bb98828ba0245093, type: 3}
   bullet: {fileID: 0}
   horizontalInput: 0
@@ -228,3 +228,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!143 &2122890589970982496
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720791434960800745}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
