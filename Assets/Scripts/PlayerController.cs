@@ -102,6 +102,8 @@ public class PlayerController : MonoBehaviour
         {
             PlayerPrefs.SetInt("HasKey", 1);
             Destroy(collision.gameObject);
+            //.LoadScene(13);
+
         }
         if (collision.gameObject.name.StartsWith("SedanSmall"))
         {
@@ -136,7 +138,9 @@ public class PlayerController : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("HasKey", 0) == 1)
             {
-                SceneManager.LoadScene(7);
+               // SceneManager.LoadScene(7);
+                SceneManager.LoadScene(13);
+
             }
         }
         if (collision.gameObject.name.StartsWith("DoorToStage2"))
@@ -148,9 +152,9 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(8);
         }
         if (collision.gameObject.name.StartsWith("Tree_Oak1 (12)")){
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(17);
         }
-        if (collision.gameObject.name.StartsWith("Tree_C_V01_Leaves02"))
+        if (collision.gameObject.name.StartsWith("StreetRail (60)"))
         {
             SceneManager.LoadScene(14);
         }

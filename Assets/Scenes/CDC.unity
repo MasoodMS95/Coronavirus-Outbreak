@@ -19924,6 +19924,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 785252456}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &787592882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5720791434960800745, guid: 234e32594511fa840bd22efe0e27b183,
+    type: 3}
+  m_PrefabInstance: {fileID: 245859412}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &787592890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787592882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b851346f98149889a4524a2acaf949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3.5
+  health: 100
+  gold: 0
+  blood: {fileID: 0}
+  bullet: {fileID: 0}
+  horizontalInput: 0
+  verticalInput: 0
+  hit: {fileID: 0}
 --- !u!1001 &799628581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52137,6 +52163,7 @@ GameObject:
   - component: {fileID: 2102310432}
   - component: {fileID: 2102310431}
   - component: {fileID: 2102310430}
+  - component: {fileID: 2102310433}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -52202,13 +52229,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102310429}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &2102310433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102310429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133f1228d4ac243869b4fad0cdd8c959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 787592882}
+  posy: 15
 --- !u!1001 &2102352357
 PrefabInstance:
   m_ObjectHideFlags: 0
