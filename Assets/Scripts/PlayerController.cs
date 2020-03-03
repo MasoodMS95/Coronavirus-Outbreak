@@ -27,12 +27,6 @@ public class PlayerController : MonoBehaviour
             var z = PlayerPrefs.GetFloat("z");
             Vector3 posVec = new Vector3(x, y, z);
             gameManager2.player.transform.position = posVec;
-        } else if (SceneManager.GetActiveScene().buildIndex == 7)
-        {
-            if (PlayerPrefs.GetInt("HasKey", 0) == 1)
-            {
-                gameManager2.player.transform.position = new Vector3(-77, 1, -207);
-            }
         }
     }
 
