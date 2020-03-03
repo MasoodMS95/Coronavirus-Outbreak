@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private float xRange = 10f;
     private float zRange = 10f;
     private AsyncOperation asyncLoadLevel;
+    private CharacterController controller;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,8 @@ public class PlayerController : MonoBehaviour
             Vector3 posVec = new Vector3(x, y, z);
             gameManager2.player.transform.position = posVec;
         }
+
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -74,8 +77,8 @@ public class PlayerController : MonoBehaviour
         //The following code ensures the player moves around despite direction it faces (which is towards mouse)
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput, Space.World);
-        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput, Space.World);
+        controller.Move(Vector3.forward * Time.deltaTime * speed * verticalInput);
+        controller.Move(Vector3.right * Time.deltaTime * speed * horizontalInput);
     }
     void OnCollisionEnter(Collision collision)
     {

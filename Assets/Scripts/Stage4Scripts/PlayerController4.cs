@@ -14,12 +14,14 @@ public class PlayerController4 : MonoBehaviour
     private AudioSource hitsound;
     private float xRange = 10f;
     private float zRange = 10f;
+    private CharacterController controller;
 
 
     // Start is called before the first frame update
     void Start()
     {
         hitsound = GetComponent<AudioSource>();
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -66,8 +68,8 @@ public class PlayerController4 : MonoBehaviour
         //The following code ensures the player moves around despite direction it faces (which is towards mouse)
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput, Space.World);
-        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput, Space.World);
+        controller.Move(Vector3.forward * Time.deltaTime * speed * verticalInput);
+        controller.Move(Vector3.right * Time.deltaTime * speed * horizontalInput);
     }
     void OnCollisionEnter(Collision collision)
     {
