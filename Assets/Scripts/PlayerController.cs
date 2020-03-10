@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource hitsound;
     private float xRange = 10f;
     private float zRange = 10f;
+    public float stage4 = 0;
     private AsyncOperation asyncLoadLevel;
     private CharacterController controller;
     // Start is called before the first frame update
@@ -67,6 +68,7 @@ public class PlayerController : MonoBehaviour
         // {
         //     transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
         // }
+         
 
         //Shooting Mechanics
         if (Input.GetMouseButtonDown(0))
@@ -79,6 +81,11 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
         controller.Move(Vector3.forward * Time.deltaTime * speed * verticalInput);
         controller.Move(Vector3.right * Time.deltaTime * speed * horizontalInput);
+
+        if ((stage4 == 1) && (transform.position.y != 2.8f))
+        {
+            transform.position = new Vector3(transform.position.x, 2.8f, transform.position.z);
+        }
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -90,6 +97,18 @@ public class PlayerController : MonoBehaviour
             Destroy(oof, 3);
             float x = Random.Range(0, 3);
             if(x == 1)
+            {
+                hitsound.PlayOneShot(hit, 1.0f);
+            }
+        }
+        if (collision.gameObject.name.StartsWith("Tiger"))
+        {
+            health -= Random.Range(1, 3);
+            PlayerPrefs.SetFloat("Health", health);
+            GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(oof, 3);
+            float x = Random.Range(0, 3);
+            if (x == 1)
             {
                 hitsound.PlayOneShot(hit, 1.0f);
             }
@@ -150,10 +169,10 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(6);
         }
-        if (collision.gameObject.name.StartsWith("Army_Bunker"))
-        {
-            SceneManager.LoadScene(8);
-        }
+        //if (collision.gameObject.name.StartsWith("Army_Bunker"))
+        //{
+        //    SceneManager.LoadScene(8);
+        //}
         if (collision.gameObject.name.StartsWith("Tree_Oak1 (12)")){
             SceneManager.LoadScene(17);
         }

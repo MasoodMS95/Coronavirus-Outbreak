@@ -43,18 +43,18 @@ public class gameManager : MonoBehaviour
         for(;;){
             spawn();
             float seconds = ((Time.time - startTime) % 60);
-            if(seconds < 10)
-            {
-                yield return new WaitForSeconds(Random.Range(1, 3));
-            }
-            if(seconds > 10 && seconds < 20)
-            {
-                yield return new WaitForSeconds(Random.Range(.5f,1.5f));
-            }
-            if(seconds > 20)
-            {
-                yield return new WaitForSeconds(Random.Range(.1f, .5f));
-            }
+            //if(seconds < 10)
+            //{
+                yield return new WaitForSeconds(Random.Range(.5f, 2));
+            //}
+            //if(seconds > 10 && seconds < 20)
+            //{
+            //    yield return new WaitForSeconds(Random.Range(.5f,1.5f));
+            //}
+            //if(seconds > 20)
+            //{
+            //    yield return new WaitForSeconds(Random.Range(.1f, .5f));
+            //}
         }
     }
     void spawn()

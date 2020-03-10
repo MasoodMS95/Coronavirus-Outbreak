@@ -52,7 +52,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Z_Walk1_InPlace
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2338326223618743508}
@@ -109,7 +109,7 @@ AnimatorStateTransition:
   m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 970911785426984342}
-  m_Solo: 0
+  m_Solo: 1
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
@@ -135,7 +135,7 @@ AnimatorStateMachine:
     m_Position: {x: 70, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 662546107666994569}
-    m_Position: {x: 300, y: 220, z: 0}
+    m_Position: {x: 330, y: 140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7534864357098318415}
     m_Position: {x: 400, y: 360, z: 0}
