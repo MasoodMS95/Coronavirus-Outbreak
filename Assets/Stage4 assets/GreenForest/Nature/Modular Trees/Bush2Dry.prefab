@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3370008}
   - component: {fileID: 2370008}
   - component: {fileID: 843880350496426485}
+  - component: {fileID: 2885081003369172810}
   m_Layer: 0
   m_Name: Bush2Dry
   m_TagString: Untagged
@@ -102,6 +103,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.0354614, y: 6.155167, z: 5.0918827}
   m_Center: {x: 0.9242554, y: 1.6719153, z: -0.29887486}
+--- !u!208 &2885081003369172810
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170008}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 4.421, y: 3.078, z: 3.7310002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.721, y: 1.672, z: -0.65500003}
+  m_TimeToStationary: 0.5
 --- !u!21 &2170008
 Material:
   serializedVersion: 6

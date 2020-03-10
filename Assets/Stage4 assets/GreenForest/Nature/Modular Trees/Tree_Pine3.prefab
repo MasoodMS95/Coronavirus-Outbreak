@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3323512}
   - component: {fileID: 2323512}
   - component: {fileID: 2629954034124656717}
+  - component: {fileID: 7747311209042700763}
   m_Layer: 0
   m_Name: Tree_Pine3
   m_TagString: Untagged
@@ -103,6 +104,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.668533, y: 17.501396, z: 7.6819344}
   m_Center: {x: 0.55454254, y: 6.6305685, z: 0.27192688}
+--- !u!208 &7747311209042700763
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123512}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 6.293, y: 8.751, z: 5.4100003}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.772, y: 6.6310005, z: 0.975}
+  m_TimeToStationary: 0.5
 --- !u!21 &2123510
 Material:
   serializedVersion: 6
