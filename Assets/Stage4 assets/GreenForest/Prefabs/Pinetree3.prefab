@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33015823898571560}
   - component: {fileID: 23698790504171398}
   - component: {fileID: 3522038846147187100}
+  - component: {fileID: 58858515133261729}
   m_Layer: 0
   m_Name: Pinetree3
   m_TagString: Untagged
@@ -93,3 +94,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.1437225, y: 12.679084, z: 4.0657616}
   m_Center: {x: 0.4353447, y: 6.1996417, z: 0.036511004}
+--- !u!208 &58858515133261729
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323883587227682}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 3.5100002, y: 6.34, z: 3.2540002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.72200006, y: 6.2000003, z: -0.252}
+  m_TimeToStationary: 0.5

@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 3.5f;
-    public float health = PlayerPrefs.GetFloat("Health", 100f);
-    private float gold = PlayerPrefs.GetFloat("Gold", 0);
+    public float health;
+    private float gold;
     public GameObject blood, bullet;
     public float horizontalInput;
     public float verticalInput;
@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      PlayerPrefs.SetFloat("Health", 100f);
+      health = PlayerPrefs.GetFloat("Health", 100f);
+      gold = PlayerPrefs.GetFloat("Gold", 0);
         hitsound = GetComponent<AudioSource>();
         if (SceneManager.GetActiveScene().buildIndex == 6)
         {
@@ -68,7 +71,7 @@ public class PlayerController : MonoBehaviour
         // {
         //     transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
         // }
-         
+
 
         //Shooting Mechanics
         if (Input.GetMouseButtonDown(0))
@@ -89,7 +92,19 @@ public class PlayerController : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name.StartsWith("Zombie"))
+        if (collision.gameObject.name.StartsWith("Zombie8"))
+        {
+            health -= Random.Range(1);
+            PlayerPrefs.SetFloat("Health", health);
+            GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(oof, 3);
+            float x = Random.Range(0, 3);
+            if(x == 1)
+            {
+                hitsound.PlayOneShot(hit, 1.0f);
+            }
+        }
+        else if (collision.gameObject.name.StartsWith("Zombie"))
         {
             health -= Random.Range(1, 3);
             PlayerPrefs.SetFloat("Health", health);
@@ -103,7 +118,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.name.StartsWith("Tiger"))
         {
-            health -= Random.Range(1, 3);
+            health -= Random.Range(3, 5);
             PlayerPrefs.SetFloat("Health", health);
             GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
             Destroy(oof, 3);
@@ -173,7 +188,7 @@ public class PlayerController : MonoBehaviour
         //{
         //    SceneManager.LoadScene(8);
         //}
-        if (collision.gameObject.name.StartsWith("Tree_Oak1 (12)")){
+        if (collision.gameObject.name.StartsWith("Tree_Oak1 (12)") || collision.gameObject.name.StartsWith("Tree_Oak1 (93)")){
             SceneManager.LoadScene(17);
         }
         if (collision.gameObject.name.StartsWith("StreetRail (60)"))

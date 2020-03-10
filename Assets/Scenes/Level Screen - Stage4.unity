@@ -1117,7 +1117,8 @@ MonoBehaviour:
     Mission: Cure has been discovered. Leave the bunker and head back to the highway.
 
 
-    Hint: Follow the coin path that will lead you out of the forest'
+    Hint: Follow the coin path that will lead you out of the forest. Tigers move faster
+    and do more damage, so using the trees and bushes as a sheild may be helpful.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1162,7 +1163,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 168
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1186,12 +1187,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 49.46817, z: -355.61075, w: -210.93974}
   m_textInfo:
     textComponent: {fileID: 1858956056}
-    characterCount: 147
+    characterCount: 245
     spriteCount: 0
-    spaceCount: 28
-    wordCount: 28
+    spaceCount: 47
+    wordCount: 47
     linkCount: 0
-    lineCount: 5
+    lineCount: 6
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
