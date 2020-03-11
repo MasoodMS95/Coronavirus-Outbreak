@@ -49819,7 +49819,7 @@ MonoBehaviour:
   startTime: 0
   spawnDist: 10
   zombiey: 0
-  stage4: 0
+  stage: 1
 --- !u!4 &1447087924
 Transform:
   m_ObjectHideFlags: 0
