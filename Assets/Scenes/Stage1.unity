@@ -24845,6 +24845,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5720791434960800751, guid: 234e32594511fa840bd22efe0e27b183,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5720791434960800746, guid: 234e32594511fa840bd22efe0e27b183, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 234e32594511fa840bd22efe0e27b183, type: 3}
@@ -29425,6 +29430,7 @@ MonoBehaviour:
   horizontalInput: 0
   verticalInput: 0
   hit: {fileID: 8300000, guid: bc32f77dc94fc134d8f1eb56fd5968bf, type: 3}
+  stage: 1
 --- !u!1 &874576370
 GameObject:
   m_ObjectHideFlags: 0
