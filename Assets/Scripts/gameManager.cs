@@ -10,18 +10,21 @@ public class gameManager : MonoBehaviour
     public static PlayerController player;
     public GameObject Player;
     //Timer and text code provided by youtube guide https://youtu.be/x-C95TuQtf0
-    public Text timer, gold;
+    private Text timer, gold;
     public float startTime;
     public float spawnDist = 10;
     public float zombiey = 0;
     public float stage = 0;
-    public GameObject healthBar;
+    private GameObject healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(spawnner());
         startTime = Time.time;
+        timer = GameObject.Find("Timer").GetComponent<Text>();
+        gold = GameObject.Find("Gold").GetComponent<Text>();
+        healthBar = GameObject.Find("Health");
     }
 
     // Update is called once per frame
