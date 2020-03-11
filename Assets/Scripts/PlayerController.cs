@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
                 hitsound.PlayOneShot(hit, 1.0f);
             }
         }
-        else if (collision.gameObject.name.StartsWith("Zombie"))
+        else if (collision.gameObject.name.StartsWith("RegularZombie"))
         {
             health -= Random.Range(1, 3);
             PlayerPrefs.SetFloat("Health", health);
