@@ -10,11 +10,13 @@ public class gameManager : MonoBehaviour
     public static PlayerController player;
     public GameObject Player;
     //Timer and text code provided by youtube guide https://youtu.be/x-C95TuQtf0
-    public Text timer, health, gold;
+    public Text timer, gold;
     public float startTime;
     public float spawnDist = 10;
     public float zombiey = 0;
     public float stage = 0;
+    public GameObject healthBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,7 @@ public class gameManager : MonoBehaviour
         string minutes = ((int)(t / 60)).ToString();
         string seconds = (t % 60).ToString("f2");
         timer.text = "TIME: " + minutes + ":" + seconds;
-        health.text = "Health:" + PlayerPrefs.GetFloat("Health", 100f).ToString() + "%";
+        healthBar.transform.localScale = new Vector3(PlayerPrefs.GetFloat("Health", 100f) / 100, 0.17156f);
         gold.text = PlayerPrefs.GetFloat("Gold", 0).ToString() + " Gold";
         if ((PlayerPrefs.GetFloat("Health", 100f)) == 0)
         {
