@@ -111,7 +111,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &5720791434960800746
 MonoBehaviour:
@@ -132,6 +132,7 @@ MonoBehaviour:
   horizontalInput: 0
   verticalInput: 0
   hit: {fileID: 8300000, guid: bc32f77dc94fc134d8f1eb56fd5968bf, type: 3}
+  stage: 0
 --- !u!82 &5720791434960800736
 AudioSource:
   m_ObjectHideFlags: 0
