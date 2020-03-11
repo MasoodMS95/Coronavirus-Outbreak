@@ -8,13 +8,14 @@ public class PlayerController : MonoBehaviour
     public float speed = 3.5f;
     public float health;
     private float gold;
-    public GameObject blood, bullet;
+    public GameObject blood;
     public float horizontalInput;
     public float verticalInput;
     public AudioClip hit;
     private AudioSource hitsound;
     private float xRange = 10f;
     private float zRange = 10f;
+    private string bulletType = "Blue";
     public float stage = 0;
     private AsyncOperation asyncLoadLevel;
     private CharacterController controller;
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
             Vector3 posVec = new Vector3(x, y, z);
             gameManager2.player.transform.position = posVec;
         }
-
+        
         controller = GetComponent<CharacterController>();
     }
 
@@ -76,7 +77,28 @@ public class PlayerController : MonoBehaviour
         //Shooting Mechanics
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject pew = (GameObject)Instantiate(bullet, transform.position, transform.rotation);
+            if (bulletType == "Blue")
+            {
+                GameObject pew = (GameObject)Instantiate(Resources.Load("Objects/BlueBullet"), transform.position, transform.rotation);
+            }
+            if (bulletType == "Green")
+            {
+                GameObject pew = (GameObject)Instantiate(Resources.Load("Objects/GreenBullet"), transform.position, transform.rotation);
+            }
+            if (bulletType == "Red")
+            {
+                GameObject pew = (GameObject)Instantiate(Resources.Load("Objects/RedBullet"), transform.position, transform.rotation);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            bulletType = "Blue";
+        } else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            bulletType = "Green";
+        } else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            bulletType = "Red";
         }
 
         //The following code ensures the player moves around despite direction it faces (which is towards mouse)
