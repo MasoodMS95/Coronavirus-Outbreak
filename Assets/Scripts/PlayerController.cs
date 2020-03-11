@@ -55,24 +55,6 @@ public class PlayerController : MonoBehaviour
             transform.LookAt(hit.point);
         }
 
-        //The following code makes sure the player does not go over map.
-        // if (transform.position.x < -xRange)
-        // {
-        //     transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
-        // }
-        // if (transform.position.x > xRange)
-        // {
-        //     transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
-        // }
-        // if(transform.position.z < -zRange)
-        // {
-        //     transform.position = new Vector3(transform.position.x, transform.position.y, -zRange);
-        // }
-        // if(transform.position.z > zRange)
-        // {
-        //     transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
-        // }
-
 
         //Shooting Mechanics
         if (Input.GetMouseButtonDown(0))
@@ -115,6 +97,29 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, 2.8f, transform.position.z);
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Here");
+
+        if (other.gameObject.name.StartsWith("Spitball"))
+        {
+            Debug.Log("Inside");
+
+            health -= Random.Range(1, 3);
+            PlayerPrefs.SetFloat("Health", health);
+            GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(oof, 3);
+            float x = Random.Range(0, 3);
+            if (x == 1)
+            {
+                hitsound.PlayOneShot(hit, 1.0f);
+            }
+
+            Destroy(other.gameObject);
+        }
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name.StartsWith("Zombie8"))
