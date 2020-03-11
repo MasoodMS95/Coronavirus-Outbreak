@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
       PlayerPrefs.SetFloat("Health", 100f);
-      health = PlayerPrefs.GetFloat("Health", 100f);
-      gold = PlayerPrefs.GetFloat("Gold", 0);
+      //health = PlayerPrefs.GetFloat("Health", 100f);
+      //gold = PlayerPrefs.GetFloat("Gold", 0);
         hitsound = GetComponent<AudioSource>();
         if (SceneManager.GetActiveScene().buildIndex == 6)
         {
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.name.StartsWith("Zombie8"))
         {
-            health -= Random.Range(1);
+            health -= Random.Range(1, 3);
             PlayerPrefs.SetFloat("Health", health);
             GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
             Destroy(oof, 3);
