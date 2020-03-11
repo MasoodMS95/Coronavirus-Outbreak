@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource hitsound;
     private float xRange = 10f;
     private float zRange = 10f;
-    public float stage4 = 0;
+    public float stage = 0;
     private AsyncOperation asyncLoadLevel;
     private CharacterController controller;
     // Start is called before the first frame update
@@ -84,8 +84,11 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
         controller.Move(Vector3.forward * Time.deltaTime * speed * verticalInput);
         controller.Move(Vector3.right * Time.deltaTime * speed * horizontalInput);
-
-        if ((stage4 == 1) && (transform.position.y != 2.8f))
+        if((stage == 1) && (transform.position.y != 0.94f))
+        {
+            transform.position = new Vector3(transform.position.x, 0.94f, transform.position.z);
+        }
+        else if ((stage == 4) && (transform.position.y != 2.8f))
         {
             transform.position = new Vector3(transform.position.x, 2.8f, transform.position.z);
         }

@@ -41,9 +41,9 @@ public class ZombieBehavior4 : MonoBehaviour
         // {
         //     transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
         // }
-        if(transform.position.y != 1.76f)
+        if(transform.position.y != 0f)
         {
-            transform.position = new Vector3(transform.position.x, 1.76f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
         }
         if(health < 0)
         {
