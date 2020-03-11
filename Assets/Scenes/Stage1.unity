@@ -12509,18 +12509,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee17d9afd26027744b8c7d0cc0f25022, type: 3}
---- !u!114 &399871458 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4246028292703838847, guid: bf798ba6bd6df6d4d9d96d93f42afe87,
-    type: 3}
-  m_PrefabInstance: {fileID: 4246028292404768669}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &402328696
 GameObject:
   m_ObjectHideFlags: 0
@@ -26687,18 +26675,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee17d9afd26027744b8c7d0cc0f25022, type: 3}
---- !u!114 &803380659 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4246028292838781486, guid: bf798ba6bd6df6d4d9d96d93f42afe87,
-    type: 3}
-  m_PrefabInstance: {fileID: 4246028292404768669}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &803859364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29118,7 +29094,6 @@ MonoBehaviour:
   speed: 10
   health: 100
   blood: {fileID: 1011661578870539620, guid: fe4965491bb3d5f4bb98828ba0245093, type: 3}
-  bullet: {fileID: 6767709806910518382, guid: e34088da824a8c24697d70806911efa3, type: 3}
   horizontalInput: 0
   verticalInput: 0
   hit: {fileID: 8300000, guid: bc32f77dc94fc134d8f1eb56fd5968bf, type: 3}
@@ -49508,16 +49483,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9dbad964a971614b9b35cb5a56b37a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieSpawner: {fileID: 8786155893279723662, guid: 221004783842c4c16acaba0c7d1f76e2,
+  zombieSpawner: {fileID: 7809220851742279989, guid: 1a9b8344799786c4bb720ff663b2270c,
     type: 3}
   Player: {fileID: 872901432}
-  timer: {fileID: 399871458}
-  gold: {fileID: 803380659}
   startTime: 0
   spawnDist: 10
   zombiey: 0
   stage: 1
-  healthBar: {fileID: 2020518337}
 --- !u!4 &1447087924
 Transform:
   m_ObjectHideFlags: 0
@@ -69839,12 +69811,6 @@ Transform:
   m_Father: {fileID: 1269287870}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2020518337 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4246028292008035932, guid: bf798ba6bd6df6d4d9d96d93f42afe87,
-    type: 3}
-  m_PrefabInstance: {fileID: 4246028292404768669}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2021123577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 121720, guid: ee17d9afd26027744b8c7d0cc0f25022,

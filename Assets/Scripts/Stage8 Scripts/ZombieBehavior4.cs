@@ -52,7 +52,7 @@ public class ZombieBehavior4 : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name.StartsWith("Bullet"))
+        if (other.gameObject.name.Contains("Bullet"))
         {
             float x = Random.Range(1, 10);
             if(x == 1)
