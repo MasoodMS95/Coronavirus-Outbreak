@@ -67,11 +67,11 @@ public class PlayerController : MonoBehaviour
             {
                 GameObject pew = (GameObject)Instantiate(Resources.Load("Objects/BlueBullet"), transform.position, transform.rotation);
             }
-            if (bulletType == "Green")
+            else if (bulletType == "Green")
             {
                 GameObject pew = (GameObject)Instantiate(Resources.Load("Objects/GreenBullet"), transform.position, transform.rotation);
             }
-            if (bulletType == "Red")
+            else if (bulletType == "Red")
             {
                 GameObject pew = (GameObject)Instantiate(Resources.Load("Objects/RedBullet"), transform.position, transform.rotation);
             }
