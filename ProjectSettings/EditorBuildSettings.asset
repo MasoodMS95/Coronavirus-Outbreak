@@ -71,4 +71,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage8.unity
     guid: 71c63f7a47a84234785bba5159ea365e
+  - enabled: 1
+    path: Assets/Scenes/InstructionsScreen.unity
+    guid: 8ef2fe167015049a084fa88d991920ac
   m_configObjects: {}
