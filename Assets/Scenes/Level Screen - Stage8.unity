@@ -1363,7 +1363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -71.3, y: -32.6}
+  m_AnchoredPosition: {x: -71.3, y: -54}
   m_SizeDelta: {x: 948.5, y: 81.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2018248229
@@ -1386,11 +1386,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: '
 
-    Mission: Go to the helipad and fight any infected people along the way. There
-    will be a helicopter waiting to bring you to the safe haven
+    Mission: There will be a helicopter waiting to bring you to the safe haven. However,
+    the helicopter will take 2 minutes to warm up before it is ready to take off.
+    Survive for 2 minutes from the swarm of enemies. Once the timer runs out, go to
+    the helipad and get into the helicopter
 
 
-    Hint: Avoid getting killed by the swarm of infected people'
+    Hint: Avoid getting killed by the swarm of enemies'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1435,7 +1437,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 284
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1459,12 +1461,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 49.46817, z: -355.61075, w: -210.93974}
   m_textInfo:
     textComponent: {fileID: 2018248229}
-    characterCount: 198
+    characterCount: 335
     spriteCount: 0
-    spaceCount: 37
-    wordCount: 37
+    spaceCount: 64
+    wordCount: 64
     linkCount: 0
-    lineCount: 5
+    lineCount: 7
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
