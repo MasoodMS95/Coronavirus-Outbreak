@@ -50,7 +50,7 @@ public class DriveZombieController : MonoBehaviour
     {
         if(collision.collider.CompareTag("Car"))
         {
-            if (driveGameManager.getSpeed() >= 25f)
+            if (driveGameManager.getSpeed() >= 15f)
             {
                 Vector3 spawnPosHead = new Vector3(gameObject.transform.position.x, 1, gameObject.transform.position.z);
                 Vector3 spawnPosBody = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
