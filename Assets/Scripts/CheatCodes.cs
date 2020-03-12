@@ -26,9 +26,9 @@ public class CheatCodes : MonoBehaviour
       {
         SceneManager.LoadScene(13);
       }
-      if (Input.GetKeyDown(KeyCode.V)) //level 4 Start scene
+      if (Input.GetKeyDown(KeyCode.V)) //level 4 cut scene
       {
-        SceneManager.LoadScene(14);
+        SceneManager.LoadScene(11);
       }
       if (Input.GetKeyDown(KeyCode.B)) //level 5 start screen
       {
