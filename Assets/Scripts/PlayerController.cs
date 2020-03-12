@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     public float stage = 0;
     private AsyncOperation asyncLoadLevel;
     private CharacterController controller;
+
+    public bool HellicopterReady { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
         }
 
         controller = GetComponent<CharacterController>();
+        HellicopterReady = false;
     }
 
     // Update is called once per frame
@@ -237,7 +241,7 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(14);
         }
-        if (collision.gameObject.name.StartsWith("Heli1"))
+        if (HellicopterReady && collision.gameObject.name.StartsWith("Heli1"))
         {
             SceneManager.LoadScene(23);    //game over
         }
