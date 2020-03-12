@@ -87,9 +87,13 @@ public class DrivePlayerController : MonoBehaviour
 
         transform.Translate(Vector3.forward * gameManager.getSpeed() * Time.deltaTime);
 
-        if (gameManager.getSpeed() != 0)
+        if (gameManager.getSpeed() > 0)
         {
             transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * horizontalInput);
+        }
+        else if (gameManager.getSpeed() < 0)
+        {
+            transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * -horizontalInput);
         }
 
         if (isTouchingObstacle)
