@@ -7,15 +7,11 @@ using UnityEngine.UI;
 
 public class DriveGameManager : MonoBehaviour
 {
-    public TextMeshProUGUI healthText;
 
-    public int health;
     public float speed;
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
-        healthText.text = "Health: " + health + "%";
         speed = 0f;
     }
 
@@ -37,11 +33,5 @@ public class DriveGameManager : MonoBehaviour
     public void decrementSpeed(float decrementAmount)
     {
         speed -= decrementAmount;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        healthText.text = "Health: " + health + "%";
     }
 }

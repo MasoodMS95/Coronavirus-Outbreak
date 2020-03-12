@@ -18,6 +18,14 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
+    public void StartMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void Instructions()
+    {
+        SceneManager.LoadScene(22);
+    }
     public void Shop()
     {
         SceneManager.LoadScene(9);
@@ -47,5 +55,15 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(16);
 
+    }
+    public void ScenePlay8()
+    {
+        SceneManager.LoadScene(21);
+
+    }
+
+    public void ScenePlay5()
+    {
+        SceneManager.LoadScene(24);
     }
 }

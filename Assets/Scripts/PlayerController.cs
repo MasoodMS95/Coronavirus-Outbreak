@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     public float stage = 0;
     private AsyncOperation asyncLoadLevel;
     private CharacterController controller;
+
+    public bool HellicopterReady { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +37,9 @@ public class PlayerController : MonoBehaviour
             Vector3 posVec = new Vector3(x, y, z);
             gameManager2.player.transform.position = posVec;
         }
-        
+
         controller = GetComponent<CharacterController>();
+        HellicopterReady = false;
     }
 
     // Update is called once per frame
@@ -55,24 +59,6 @@ public class PlayerController : MonoBehaviour
             transform.LookAt(hit.point);
         }
 
-        //The following code makes sure the player does not go over map.
-        // if (transform.position.x < -xRange)
-        // {
-        //     transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
-        // }
-        // if (transform.position.x > xRange)
-        // {
-        //     transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
-        // }
-        // if(transform.position.z < -zRange)
-        // {
-        //     transform.position = new Vector3(transform.position.x, transform.position.y, -zRange);
-        // }
-        // if(transform.position.z > zRange)
-        // {
-        //     transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
-        // }
-
 
         //Shooting Mechanics
         if (Input.GetMouseButtonDown(0))
@@ -81,11 +67,11 @@ public class PlayerController : MonoBehaviour
             {
                 GameObject pew = (GameObject)Instantiate(Resources.Load("Objects/BlueBullet"), transform.position, transform.rotation);
             }
-            if (bulletType == "Green")
+            else if (bulletType == "Green")
             {
                 GameObject pew = (GameObject)Instantiate(Resources.Load("Objects/GreenBullet"), transform.position, transform.rotation);
             }
-            if (bulletType == "Red")
+            else if (bulletType == "Red")
             {
                 GameObject pew = (GameObject)Instantiate(Resources.Load("Objects/RedBullet"), transform.position, transform.rotation);
             }
@@ -100,6 +86,11 @@ public class PlayerController : MonoBehaviour
         {
             bulletType = "Red";
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            bulletType = "Blue";
+        }
+        
 
         //The following code ensures the player moves around despite direction it faces (which is towards mouse)
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -114,22 +105,53 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, 2.8f, transform.position.z);
         }
+        else if ((stage == 8) && (transform.position.y != 1f))
+        {
+            transform.position = new Vector3(transform.position.x, 1f, transform.position.z);
+        }
     }
-    void OnCollisionEnter(Collision collision)
+
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.name.StartsWith("Zombie8"))
+        if (other.gameObject.name.StartsWith("Spitball"))
         {
             health -= Random.Range(1, 3);
             PlayerPrefs.SetFloat("Health", health);
             GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
             Destroy(oof, 3);
             float x = Random.Range(0, 3);
+            if (x == 1)
+            {
+                hitsound.PlayOneShot(hit, 1.0f);
+            }
+
+            Destroy(other.gameObject);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name.StartsWith("BombZombie"))
+        {
+            health -= 5;
+            PlayerPrefs.SetFloat("Health", health);
+            float x = Random.Range(0, 3);
             if(x == 1)
             {
                 hitsound.PlayOneShot(hit, 1.0f);
             }
         }
-        else if (collision.gameObject.name.StartsWith("Zombie"))
+        else if (collision.gameObject.name.StartsWith("RegularZombieNavMesh"))
+        {
+            health -= 3;
+            PlayerPrefs.SetFloat("Health", health);
+            float x = Random.Range(0, 3);
+            if(x == 1)
+            {
+                hitsound.PlayOneShot(hit, 1.0f);
+            }
+        }
+        else if (collision.gameObject.name.StartsWith("RegularZombie"))
         {
             health -= Random.Range(1, 3);
             PlayerPrefs.SetFloat("Health", health);
@@ -213,12 +235,16 @@ public class PlayerController : MonoBehaviour
         //{
         //    SceneManager.LoadScene(8);
         //}
-        if (collision.gameObject.name.StartsWith("Tree_Oak1 (12)") || collision.gameObject.name.StartsWith("Tree_Oak1 (93)")){
-            SceneManager.LoadScene(17);
+        if (collision.gameObject.name.StartsWith("SceneFourCar")){
+            SceneManager.LoadScene(18);
         }
         if (collision.gameObject.name.StartsWith("StreetRail (60)"))
         {
             SceneManager.LoadScene(14);
+        }
+        if (HellicopterReady && collision.gameObject.name.StartsWith("Heli1"))
+        {
+            SceneManager.LoadScene(23);    //game over
         }
     }
     public void Awake()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    float speed = 20f;
+    public float speed = 20f;
     private GameObject player;
 
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y < 1)
+        if(transform.position.y != 1)
         {
             transform.position = new Vector3(transform.position.x, 1, transform.position.z);
         }

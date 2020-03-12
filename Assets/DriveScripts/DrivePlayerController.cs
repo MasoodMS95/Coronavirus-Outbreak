@@ -10,11 +10,14 @@ public class DrivePlayerController : MonoBehaviour
     private float turnSpeed = 55.0f;
     public bool isTouchingObstacle;
     private DriveGameManager gameManager;
+    private GameController gameController;
 
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetFloat("Health", 100);
         gameManager = GameObject.Find("DriveGameManager").GetComponent<DriveGameManager>();
+        gameController = GameObject.Find("GameManager").GetComponent<GameController>();
         gameManager.setSpeed(0f);
         maxSpeed = 40.0f;
         isTouchingObstacle = false;
@@ -87,9 +90,13 @@ public class DrivePlayerController : MonoBehaviour
 
         transform.Translate(Vector3.forward * gameManager.getSpeed() * Time.deltaTime);
 
-        if (gameManager.getSpeed() != 0)
+        if (gameManager.getSpeed() > 0)
         {
             transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * horizontalInput);
+        }
+        else if (gameManager.getSpeed() < 0)
+        {
+            transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * -horizontalInput);
         }
 
         if (isTouchingObstacle)
@@ -119,6 +126,14 @@ public class DrivePlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             isTouchingObstacle = true;
+            if(gameManager.getSpeed() >= 40)
+            {
+                PlayerPrefs.SetFloat("Health", PlayerPrefs.GetFloat("Health") - 2f);
+                if (PlayerPrefs.GetFloat("Health") < 0)
+                {
+                    PlayerPrefs.SetFloat("Health", 0);
+                }
+            }
         }
     }
 
