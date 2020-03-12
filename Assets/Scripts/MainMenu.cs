@@ -61,4 +61,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(21);
 
     }
+
+    public void ScenePlay5()
+    {
+        SceneManager.LoadScene(24);
+    }
 }

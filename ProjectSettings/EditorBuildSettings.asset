@@ -77,4 +77,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HelicopterAnimation.unity
     guid: 6bc34fae369da4acea6f5d1779196fed
+  - enabled: 1
+    path: Assets/Scenes/Stage5.unity
+    guid: 9fca934014f5b98488ab25dcfa820e52
   m_configObjects: {}

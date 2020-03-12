@@ -236,7 +236,7 @@ public class PlayerController : MonoBehaviour
         //    SceneManager.LoadScene(8);
         //}
         if (collision.gameObject.name.StartsWith("SceneFourCar")){
-            SceneManager.LoadScene(17);
+            SceneManager.LoadScene(18);
         }
         if (collision.gameObject.name.StartsWith("StreetRail (60)"))
         {
