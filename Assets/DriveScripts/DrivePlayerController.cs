@@ -126,11 +126,14 @@ public class DrivePlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             isTouchingObstacle = true;
-        }
-        if (collision.gameObject.CompareTag("Zombie"))
-        {
-            PlayerPrefs.SetFloat("Health", PlayerPrefs.GetFloat("Health") - 10f);
-            Debug.Log(PlayerPrefs.GetFloat("Health"));
+            if(gameManager.getSpeed() >= 40)
+            {
+                PlayerPrefs.SetFloat("Health", PlayerPrefs.GetFloat("Health") - 2f);
+                if (PlayerPrefs.GetFloat("Health") < 0)
+                {
+                    PlayerPrefs.SetFloat("Health", 0);
+                }
+            }
         }
     }
 

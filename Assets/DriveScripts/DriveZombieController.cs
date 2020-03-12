@@ -14,10 +14,14 @@ public class DriveZombieController : MonoBehaviour
     public GameObject zombieHead;
     public GameObject zombieBody;
     private DriveGameManager driveGameManager;
+    private float currentDamageToPlayer;
+    private bool canDamagePlayer;
 
     // Start is called before the first frame update
     void Start()
     {
+        canDamagePlayer = true;
+        currentDamageToPlayer = 0f;
         driveGameManager = GameObject.Find("DriveGameManager").GetComponent<DriveGameManager>();
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("DriverPlayer");
@@ -48,15 +52,30 @@ public class DriveZombieController : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.CompareTag("Car"))
+        if ((collision.collider.CompareTag("Car") && driveGameManager.getSpeed() >= 20f) ||
+            (collision.collider.CompareTag("CarRear") && driveGameManager.getSpeed() <= -20f))
         {
-            if (driveGameManager.getSpeed() >= 15f)
+            Vector3 spawnPosHead = new Vector3(gameObject.transform.position.x, 1, gameObject.transform.position.z);
+            Vector3 spawnPosBody = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+            Instantiate(zombieHead, spawnPosHead, gameObject.transform.rotation);
+            Instantiate(zombieBody, spawnPosBody, gameObject.transform.rotation);
+            Destroy(gameObject);
+        }
+        if(collision.collider.CompareTag("CarVulnerable") && driveGameManager.getSpeed() < 20)
+        {
+            if (canDamagePlayer)
             {
-                Vector3 spawnPosHead = new Vector3(gameObject.transform.position.x, 1, gameObject.transform.position.z);
-                Vector3 spawnPosBody = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-                Instantiate(zombieHead, spawnPosHead, gameObject.transform.rotation);
-                Instantiate(zombieBody, spawnPosBody, gameObject.transform.rotation);
-                Destroy(gameObject);
+                PlayerPrefs.SetFloat("Health", PlayerPrefs.GetFloat("Health") - 7f);
+                if (PlayerPrefs.GetFloat("Health") < 0)
+                {
+                    PlayerPrefs.SetFloat("Health", 0);
+                }
+                currentDamageToPlayer += 7;
+            }
+            
+            if (currentDamageToPlayer >= 30)
+            {
+                canDamagePlayer = false;
             }
         }
         
