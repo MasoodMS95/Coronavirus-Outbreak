@@ -165,10 +165,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombieSpawner: {fileID: 4493914613880827488, guid: 6dc4cf4496348884d8ee27743ae38562,
     type: 3}
-  timer: {fileID: 0}
-  health: {fileID: 0}
-  gold: {fileID: 0}
+  Player: {fileID: 1410105676}
   startTime: 0
+  spawnDist: 10
+  zombiey: 0
+  stage: 0
 --- !u!1001 &214785496
 PrefabInstance:
   m_ObjectHideFlags: 0
