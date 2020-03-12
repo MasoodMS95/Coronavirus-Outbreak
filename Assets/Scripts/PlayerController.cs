@@ -96,6 +96,10 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, 2.8f, transform.position.z);
         }
+        else if ((stage == 8) && (transform.position.y != 1f))
+        {
+            transform.position = new Vector3(transform.position.x, 1f, transform.position.z);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -122,12 +126,20 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name.StartsWith("Zombie8"))
+        if (collision.gameObject.name.StartsWith("BombZombie"))
         {
-            health -= Random.Range(1, 3);
+            health -= 5;
             PlayerPrefs.SetFloat("Health", health);
-            GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
-            Destroy(oof, 3);
+            float x = Random.Range(0, 3);
+            if(x == 1)
+            {
+                hitsound.PlayOneShot(hit, 1.0f);
+            }
+        }
+        else if (collision.gameObject.name.StartsWith("RegularZombieNavMesh"))
+        {
+            health -= 3;
+            PlayerPrefs.SetFloat("Health", health);
             float x = Random.Range(0, 3);
             if(x == 1)
             {
@@ -224,6 +236,10 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.name.StartsWith("StreetRail (60)"))
         {
             SceneManager.LoadScene(14);
+        }
+        if (collision.gameObject.name.StartsWith("Heli1"))
+        {
+            SceneManager.LoadScene(2);    //game over
         }
     }
     public void Awake()

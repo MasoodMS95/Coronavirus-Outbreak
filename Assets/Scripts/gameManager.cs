@@ -74,9 +74,11 @@ public class gameManager : MonoBehaviour
         for(;;){
             spawn();
             float seconds = ((Time.time - startTime) % 60);
-            if(stage == 8)    //hardest level - want a lot to spawn
-            {
-                yield return new WaitForSeconds(Random.Range(.2f, .8f));
+            if (stage == 4){
+              yield return new WaitForSeconds(Random.Range(.5f, 1f));
+            }
+            else if (stage == 8){
+              yield return new WaitForSeconds(Random.Range(1f, 3f));
             }
             else
             {
@@ -97,11 +99,14 @@ public class gameManager : MonoBehaviour
          */
         Vector3 spawn = new Vector3(Random.Range(Player.transform.position.x-spawnDist, Player.transform.position.x + spawnDist), zombiey, Random.Range(Player.transform.position.z-spawnDist, Player.transform.position.z+spawnDist));
         if (stage == 4){
-          Vector3 spawnRot = new Vector3(0, zombieSpawner.transform.rotation.y, zombieSpawner.transform.rotation.z);
+          Vector3 spawnRot = new Vector3(0, 0.75f, zombieSpawner.transform.rotation.z);
           Instantiate(zombieSpawner, spawn, Quaternion.Euler(spawnRot));
         }
         else if (stage == 8){       //make it spawn out of sewer's coordinates
-          Vector3 spawnRot = new Vector3(0, zombieSpawner.transform.rotation.y, zombieSpawner.transform.rotation.z);
+          //spawn = new Vector3(-17.26f, zombiey, -28.5f);
+          Vector3 spawnRot = new Vector3(zombieSpawner.transform.rotation.x, zombieSpawner.transform.rotation.y, zombieSpawner.transform.rotation.z);
+          //Instantiate(zombieSpawner, spawn, Quaternion.Euler(spawnRot));
+          spawn = new Vector3(20.5f, zombiey, 17.5f);
           Instantiate(zombieSpawner, spawn, Quaternion.Euler(spawnRot));
         }
         else{

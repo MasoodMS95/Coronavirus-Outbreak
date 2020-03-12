@@ -48,4 +48,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(16);
 
     }
+    public void ScenePlay8()
+    {
+        SceneManager.LoadScene(21);
+
+    }
 }
