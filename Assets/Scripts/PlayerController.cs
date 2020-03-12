@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
             Vector3 posVec = new Vector3(x, y, z);
             gameManager2.player.transform.position = posVec;
         }
-        
+
         controller = GetComponent<CharacterController>();
     }
 
@@ -230,7 +230,7 @@ public class PlayerController : MonoBehaviour
         //{
         //    SceneManager.LoadScene(8);
         //}
-        if (collision.gameObject.name.StartsWith("Tree_Oak1 (12)") || collision.gameObject.name.StartsWith("Tree_Oak1 (93)")){
+        if (collision.gameObject.name.StartsWith("SceneFourCar")){
             SceneManager.LoadScene(17);
         }
         if (collision.gameObject.name.StartsWith("StreetRail (60)"))
@@ -239,7 +239,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.name.StartsWith("Heli1"))
         {
-            SceneManager.LoadScene(2);    //game over
+            SceneManager.LoadScene(23);    //game over
         }
     }
     public void Awake()

@@ -48,7 +48,7 @@ public class BombZombie : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-      if (other.gameObject.name.StartsWith("Bullet"))
+      if (other.gameObject.name.Contains("Bullet"))
       {
           health -= 20;
           GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);

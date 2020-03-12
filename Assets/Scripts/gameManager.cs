@@ -76,7 +76,7 @@ public class gameManager : MonoBehaviour
               yield return new WaitForSeconds(Random.Range(.5f, 1f));
             }
             else if (stage == 8){
-              yield return new WaitForSeconds(Random.Range(1f, 3f));
+              yield return new WaitForSeconds(Random.Range(1f, 1.5f));
             }
             else
             {
