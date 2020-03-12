@@ -111,7 +111,30 @@ public class gameManager : MonoBehaviour
          * Y wil always be set to zero.
          */
         Vector3 spawn = new Vector3(Random.Range(Player.transform.position.x - spawnDist, Player.transform.position.x + spawnDist), zombiey, Random.Range(Player.transform.position.z - spawnDist, Player.transform.position.z + spawnDist));
-        if (stage == 4)
+        if (stage == 1){
+          if (Player.transform.position.x < -94f){
+            spawn = new Vector3(-62.49f, zombiey, 212f);//wave 1
+          }
+          else if (Player.transform.position.x < -9.7f){
+            spawn = new Vector3(8.8f, zombiey, 153.1f);//wave 2
+          }
+          else if (Player.transform.position.x < 49f){
+            spawn = new Vector3(70.7f, zombiey, 153.3f);  //wave 3
+          }
+          else if (Player.transform.position.x < 93f){
+            spawn = new Vector3(125.4f, zombiey, 243.3f);  //wave 4
+          }
+          else {
+            if (Player.transform.position.z <159.2f){
+              spawn = new Vector3(199f, zombiey, 133.4f); //wave 6
+            }
+            else{
+              spawn = new Vector3(191f, zombiey, 255f); //wave 5
+            }
+          }
+          Instantiate(regularZombie, spawn, regularZombie.transform.rotation);
+        }
+        else if (stage == 4)
         {
             Vector3 spawnRot = new Vector3(0, 0.75f, regularZombie.transform.rotation.z);
             Instantiate(regularZombie, spawn, Quaternion.Euler(spawnRot));
