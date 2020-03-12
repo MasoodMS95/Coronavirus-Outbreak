@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3370008}
   - component: {fileID: 2370008}
   - component: {fileID: 4752046068329495536}
+  - component: {fileID: 5702829011230825028}
   m_Layer: 0
   m_Name: SmallTree2Dry
   m_TagString: Untagged
@@ -103,6 +104,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.010433, y: 16.369167, z: 5.2138367}
   m_Center: {x: 0.74007607, y: 8.161634, z: -1.0443268}
+--- !u!208 &5702829011230825028
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170008}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 3.206, y: 8.185, z: 4.3640003}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.74, y: 8.162001, z: -1.3850001}
+  m_TimeToStationary: 0.5
 --- !u!21 &2170008
 Material:
   serializedVersion: 6

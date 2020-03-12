@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3370008}
   - component: {fileID: 2370008}
   - component: {fileID: 8969921520031974055}
+  - component: {fileID: 8571597153834186933}
   m_Layer: 0
   m_Name: SmallTree1
   m_TagString: Untagged
@@ -103,6 +104,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.931778, y: 16.396847, z: 4.9312706}
   m_Center: {x: 0.07688904, y: 8.176981, z: 0.14563179}
+--- !u!208 &8571597153834186933
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170008}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 3.2430003, y: 8.198, z: 3.6750002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.163, y: 8.177, z: 0.058000002}
+  m_TimeToStationary: 0.5
 --- !u!21 &2170008
 Material:
   serializedVersion: 6

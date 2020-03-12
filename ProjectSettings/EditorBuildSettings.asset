@@ -41,4 +41,34 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage4.unity
     guid: 6081b839c74e3b24488c939423f70fe1
+  - enabled: 1
+    path: Assets/Scenes/Level Screen - Stage2.unity
+    guid: 0b6cad192e8597440a6b87302e18c1e5
+  - enabled: 1
+    path: Assets/Scenes/Level Screen - Stage3.unity
+    guid: cfe76828293238e43b3c5a28a9ac6328
+  - enabled: 1
+    path: Assets/Scenes/Level Screen - Stage4.unity
+    guid: e7208236ebe1ddf469213e2fb7512e24
+  - enabled: 1
+    path: Assets/Scenes/Stage3.unity
+    guid: b504f7ce6aa8417498c570cfcc8d6b4b
+  - enabled: 1
+    path: Assets/Scenes/CDC.unity
+    guid: 1f3270ab29bdc894baa24623097a3ed3
+  - enabled: 1
+    path: Assets/Scenes/Level Screen - Stage6.unity
+    guid: 250e8755448463443b2dd8f540b5abbc
+  - enabled: 1
+    path: Assets/Scenes/Level Screen - Stage5.unity
+    guid: 811f0af5f5d4fd947b94d9c19b6a422c
+  - enabled: 1
+    path: Assets/Scenes/Level Screen - Stage7.unity
+    guid: babb8fe3fa9afec4389deeebb6c04cc6
+  - enabled: 1
+    path: Assets/Scenes/Level Screen - Stage8.unity
+    guid: 95cef59405b3f6b4d8b0af0b55864844
+  - enabled: 1
+    path: Assets/Scenes/Stage8.unity
+    guid: 71c63f7a47a84234785bba5159ea365e
   m_configObjects: {}

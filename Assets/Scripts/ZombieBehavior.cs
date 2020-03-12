@@ -52,14 +52,36 @@ public class ZombieBehavior : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name.StartsWith("Bullet"))
+        if (other.gameObject.name.StartsWith("BlueBullet"))
         {
             float x = Random.Range(1, 10);
             if(x == 1)
             {
                 hitsound.PlayOneShot(hit, 2.0f);
             }
-            health -= Random.Range(10, 40);
+            health -= Random.Range(10, 20);
+            GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(oof, 3);
+        }
+        else if (other.gameObject.name.StartsWith("GreenBullet"))
+        {
+            float x = Random.Range(1, 10);
+            if (x == 1)
+            {
+                hitsound.PlayOneShot(hit, 2.0f);
+            }
+            health -= Random.Range(20, 30);
+            GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(oof, 3);
+        }
+        else if (other.gameObject.name.StartsWith("RedBullet"))
+        {
+            float x = Random.Range(1, 10);
+            if (x == 1)
+            {
+                hitsound.PlayOneShot(hit, 2.0f);
+            }
+            health -= Random.Range(30, 40);
             GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
             Destroy(oof, 3);
         }

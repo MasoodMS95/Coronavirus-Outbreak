@@ -41,9 +41,9 @@ public class ZombieBehavior4 : MonoBehaviour
         // {
         //     transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
         // }
-        if(transform.position.y != 1.52f)
+        if(transform.position.y != 0f)
         {
-            transform.position = new Vector3(transform.position.x, 1.52f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
         }
         if(health < 0)
         {
@@ -52,7 +52,7 @@ public class ZombieBehavior4 : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name.StartsWith("Bullet"))
+        if (other.gameObject.name.Contains("Bullet"))
         {
             float x = Random.Range(1, 10);
             if(x == 1)
@@ -67,9 +67,9 @@ public class ZombieBehavior4 : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (Random.value > 0.6) {
-            GameObject goldcoin = (GameObject)Instantiate(money, transform.position, money.transform.rotation);
-            Destroy(goldcoin, 5);
-        }
+        //if (Random.value > 0.6) {
+       //     GameObject goldcoin = (GameObject)Instantiate(money, transform.position, money.transform.rotation);
+       //     Destroy(goldcoin, 5);
+        //}
     }
 }

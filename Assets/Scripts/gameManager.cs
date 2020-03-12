@@ -10,16 +10,21 @@ public class gameManager : MonoBehaviour
     public static PlayerController player;
     public GameObject Player;
     //Timer and text code provided by youtube guide https://youtu.be/x-C95TuQtf0
-    public Text timer, health, gold;
+    private Text timer, gold;
     public float startTime;
     public float spawnDist = 10;
     public float zombiey = 0;
-    public float stage4 = 0;
+    public float stage = 0;
+    private GameObject healthBar;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(spawnner());
         startTime = Time.time;
+        timer = GameObject.Find("Timer").GetComponent<Text>();
+        gold = GameObject.Find("Gold").GetComponent<Text>();
+        healthBar = GameObject.Find("Health");
     }
 
     // Update is called once per frame
@@ -29,12 +34,38 @@ public class gameManager : MonoBehaviour
         string minutes = ((int)(t / 60)).ToString();
         string seconds = (t % 60).ToString("f2");
         timer.text = "TIME: " + minutes + ":" + seconds;
-        health.text = "Health:" + PlayerPrefs.GetFloat("Health", 100f).ToString() + "%";
+        healthBar.transform.localScale = new Vector3(PlayerPrefs.GetFloat("Health", 100f) / 100, 0.17156f);
         gold.text = PlayerPrefs.GetFloat("Gold", 0).ToString() + " Gold";
-        if (player.getHealth() == 0)
+        if ((PlayerPrefs.GetFloat("Health", 100f)) == 0)
         {
             PlayerPrefs.SetFloat("CurrentTime", t);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (stage == 1){
+              SceneManager.LoadScene(10);
+            }
+            else if (stage == 2){
+              SceneManager.LoadScene(12);
+            }
+            else if (stage == 3){
+              SceneManager.LoadScene(13);
+            }
+            else if (stage == 4){
+              SceneManager.LoadScene(14);
+            }
+            else if (stage == 5){
+              SceneManager.LoadScene(18);
+            }
+            else if (stage == 6){
+              SceneManager.LoadScene(17);
+            }
+            else if (stage == 7){
+              SceneManager.LoadScene(19);
+            }
+            else if (stage == 8){
+              SceneManager.LoadScene(20);
+            }
+            else{
+              SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
     }
 
@@ -43,18 +74,20 @@ public class gameManager : MonoBehaviour
         for(;;){
             spawn();
             float seconds = ((Time.time - startTime) % 60);
-            if(seconds < 10)
-            {
-                yield return new WaitForSeconds(Random.Range(1, 3));
+            if (stage == 4){
+              yield return new WaitForSeconds(Random.Range(.5f, 1f));
             }
-            if(seconds > 10 && seconds < 20)
-            {
-                yield return new WaitForSeconds(Random.Range(.5f,1.5f));
+            else if (stage == 8){
+              yield return new WaitForSeconds(Random.Range(1f, 3f));
             }
-            if(seconds > 20)
+            else
             {
-                yield return new WaitForSeconds(Random.Range(.1f, .5f));
+               yield return new WaitForSeconds(Random.Range(.5f,2));
             }
+            //if(seconds > 20)
+            //{
+            //    yield return new WaitForSeconds(Random.Range(.1f, .5f));
+            //}
         }
     }
     void spawn()
@@ -65,8 +98,15 @@ public class gameManager : MonoBehaviour
          * Y wil always be set to zero.
          */
         Vector3 spawn = new Vector3(Random.Range(Player.transform.position.x-spawnDist, Player.transform.position.x + spawnDist), zombiey, Random.Range(Player.transform.position.z-spawnDist, Player.transform.position.z+spawnDist));
-        if (stage4 == 1){
-          Vector3 spawnRot = new Vector3(0, zombieSpawner.transform.rotation.y, zombieSpawner.transform.rotation.z);
+        if (stage == 4){
+          Vector3 spawnRot = new Vector3(0, 0.75f, zombieSpawner.transform.rotation.z);
+          Instantiate(zombieSpawner, spawn, Quaternion.Euler(spawnRot));
+        }
+        else if (stage == 8){       //make it spawn out of sewer's coordinates
+          //spawn = new Vector3(-17.26f, zombiey, -28.5f);
+          Vector3 spawnRot = new Vector3(zombieSpawner.transform.rotation.x, zombieSpawner.transform.rotation.y, zombieSpawner.transform.rotation.z);
+          //Instantiate(zombieSpawner, spawn, Quaternion.Euler(spawnRot));
+          spawn = new Vector3(20.5f, zombiey, 17.5f);
           Instantiate(zombieSpawner, spawn, Quaternion.Euler(spawnRot));
         }
         else{
