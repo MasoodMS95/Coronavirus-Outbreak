@@ -134,6 +134,10 @@ public class gameManager : MonoBehaviour
           }
           Instantiate(regularZombie, spawn, regularZombie.transform.rotation);
         }
+        else if (stage == 2)
+        {
+            return;
+        }
         else if (stage == 4)
         {
             Vector3 spawnRot = new Vector3(0, 0.75f, regularZombie.transform.rotation.z);
