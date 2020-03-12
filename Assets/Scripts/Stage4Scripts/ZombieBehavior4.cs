@@ -41,11 +41,11 @@ public class ZombieBehavior4 : MonoBehaviour
         // {
         //     transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
         // }
-        if(transform.position.y != 0f)
+        if (transform.position.y != 0f)
         {
             transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
         }
-        if(health < 0)
+        if (health < 0)
         {
             Destroy(gameObject);
         }
@@ -55,11 +55,21 @@ public class ZombieBehavior4 : MonoBehaviour
         if (other.gameObject.name.Contains("Bullet"))
         {
             float x = Random.Range(1, 10);
-            if(x == 1)
+            if (x == 1)
             {
                 hitsound.PlayOneShot(hit, 2.0f);
             }
             health -= Random.Range(10, 40);
+
+            if (other.gameObject.name.Contains("GreenBullet"))
+            {
+                health -= 10;
+            }
+            else if (other.gameObject.name.Contains("RedBullet"))
+            {
+                health = 20;
+            }
+
             GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
             Destroy(oof, 3);
         }
@@ -68,8 +78,8 @@ public class ZombieBehavior4 : MonoBehaviour
     private void OnDestroy()
     {
         //if (Random.value > 0.6) {
-       //     GameObject goldcoin = (GameObject)Instantiate(money, transform.position, money.transform.rotation);
-       //     Destroy(goldcoin, 5);
+        //     GameObject goldcoin = (GameObject)Instantiate(money, transform.position, money.transform.rotation);
+        //     Destroy(goldcoin, 5);
         //}
     }
 }
