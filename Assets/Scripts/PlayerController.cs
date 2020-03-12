@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     public float stage = 0;
     private AsyncOperation asyncLoadLevel;
     private CharacterController controller;
+
+    public bool HellicopterReady { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
         }
 
         controller = GetComponent<CharacterController>();
+        HellicopterReady = false;
     }
 
     // Update is called once per frame
@@ -63,11 +67,11 @@ public class PlayerController : MonoBehaviour
             {
                 GameObject pew = (GameObject)Instantiate(Resources.Load("Objects/BlueBullet"), transform.position, transform.rotation);
             }
-            if (bulletType == "Green")
+            else if (bulletType == "Green")
             {
                 GameObject pew = (GameObject)Instantiate(Resources.Load("Objects/GreenBullet"), transform.position, transform.rotation);
             }
-            if (bulletType == "Red")
+            else if (bulletType == "Red")
             {
                 GameObject pew = (GameObject)Instantiate(Resources.Load("Objects/RedBullet"), transform.position, transform.rotation);
             }
@@ -82,6 +86,11 @@ public class PlayerController : MonoBehaviour
         {
             bulletType = "Red";
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            bulletType = "Blue";
+        }
+        
 
         //The following code ensures the player moves around despite direction it faces (which is towards mouse)
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -104,12 +113,8 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Here");
-
         if (other.gameObject.name.StartsWith("Spitball"))
         {
-            Debug.Log("Inside");
-
             health -= Random.Range(1, 3);
             PlayerPrefs.SetFloat("Health", health);
             GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
@@ -237,7 +242,7 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(14);
         }
-        if (collision.gameObject.name.StartsWith("Heli1"))
+        if (HellicopterReady && collision.gameObject.name.StartsWith("Heli1"))
         {
             SceneManager.LoadScene(23);    //game over
         }

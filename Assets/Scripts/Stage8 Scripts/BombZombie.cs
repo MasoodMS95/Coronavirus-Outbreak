@@ -48,13 +48,28 @@ public class BombZombie : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-      if (other.gameObject.name.Contains("Bullet"))
-      {
-          health -= 20;
-          GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
-          Destroy(oof, 1);
-      }
-  }
+        if (other.gameObject.name.Contains("Bullet"))
+        {
+            float x = Random.Range(1, 10);
+            if (x == 1)
+            {
+                explosion_sound.PlayOneShot(boom, 2.0f);
+            }
+            health -= Random.Range(10, 40);
+
+            if (other.gameObject.name.Contains("GreenBullet"))
+            {
+                health -= 10;
+            }
+            else if (other.gameObject.name.Contains("RedBullet"))
+            {
+                health = 20;
+            }
+
+            GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(oof, 3);
+        }
+    }
 
   private void OnDestroy()
   {

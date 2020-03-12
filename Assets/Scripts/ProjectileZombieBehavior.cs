@@ -48,6 +48,16 @@ public class ProjectileZombieBehavior : MonoBehaviour
                 hitsound.PlayOneShot(hit, 2.0f);
             }
             health -= Random.Range(10, 40);
+
+            if (other.gameObject.name.Contains("GreenBullet"))
+            {
+                health -= 10;
+            }
+            else if (other.gameObject.name.Contains("RedBullet"))
+            {
+                health = 20;
+            }
+
             GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
             Destroy(oof, 3);
         }
