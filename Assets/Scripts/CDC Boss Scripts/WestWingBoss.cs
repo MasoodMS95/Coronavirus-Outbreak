@@ -4,29 +4,66 @@ using UnityEngine;
 
 public class WestWingBoss : MonoBehaviour
 {
+    public GameObject blood;
+    private float health = 500;
+    public GameObject player;
+    private float time;
+    private float speed;
     // Start is called before the first frame update
     void Start()
     {
-        AttackDownwards();
+        time = Time.time;
+        speed = 10f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Time.time - time == 15)
+        {
+            speed = 10f;
+        }
+        if(Time.time - time == 30)
+        {
+            speed = 20f;
+        }
+        if(Time.time - time == 60)
+        {
+            speed = 30f;
+        }
+        if(health < 0)
+        {
+            Destroy(gameObject);
+        }
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
-
-    private void AttackDownwards()
+    private void OnTriggerEnter(Collider other)
     {
-        while(transform.position.z < 19f)
+        if (other.gameObject.name.StartsWith("BlueBullet"))
         {
-            transform.Translate(Vector3.forward * 10f * Time.deltaTime);
+            health -= Random.Range(10, 20);
+            GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(oof, 3);
         }
-        transform.Rotate(0, 90, 0);
-        while (transform.position.z > -11f)
+        else if (other.gameObject.name.StartsWith("GreenBullet"))
         {
-            transform.Translate(Vector3.forward * 10f * Time.deltaTime);
+            health -= Random.Range(20, 30);
+            GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(oof, 3);
         }
-        transform.Rotate(0, -90, 0);
+        else if (other.gameObject.name.StartsWith("RedBullet"))
+        {
+            health -= Random.Range(30, 40);
+            GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(oof, 3);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name.StartsWith("Wall"))
+        {
+            Debug.Log("WE COLLIDING BOYS");
+            transform.LookAt(player.transform);
+        }
     }
 }
