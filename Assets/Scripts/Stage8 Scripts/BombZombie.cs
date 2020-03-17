@@ -63,7 +63,7 @@ public class BombZombie : MonoBehaviour
             }
             else if (other.gameObject.name.Contains("RedBullet"))
             {
-                health = 20;
+                health -= 20;
             }
 
             GameObject oof = (GameObject)Instantiate(blood, transform.position, Quaternion.identity);

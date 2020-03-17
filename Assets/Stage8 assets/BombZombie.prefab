@@ -2939,7 +2939,6 @@ GameObject:
   - component: {fileID: 2461886150398129212}
   - component: {fileID: 2461886150398129187}
   - component: {fileID: 2461886150398129186}
-  - component: {fileID: 2461886150398129185}
   - component: {fileID: 2461886150398129184}
   - component: {fileID: 2461886150398129191}
   - component: {fileID: 2461886150398129190}
@@ -3015,24 +3014,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &2461886150398129185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2461886150398129189}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627dc3e4df66f45e7bbc4e8c189d07de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  blood: {fileID: 1011661578870539620, guid: fe4965491bb3d5f4bb98828ba0245093, type: 3}
-  money: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
-  hit: {fileID: 8300000, guid: b65e3669dee42784b9bb591b5cbae103, type: 3}
-  xRange: 10
-  zRange: 10
 --- !u!65 &2461886150398129184
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3057,7 +3038,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b65e3669dee42784b9bb591b5cbae103, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

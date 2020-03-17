@@ -781,7 +781,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3017089389890997232}
   - component: {fileID: 5139971742614759050}
-  - component: {fileID: 5670823362121425792}
   - component: {fileID: 7328498780514748822}
   - component: {fileID: 4658356830771382938}
   - component: {fileID: 8718878748118329576}
@@ -841,22 +840,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5670823362121425792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2271365659400829411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a86a3adb96250fc4f9f7183479b59700, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  blood: {fileID: 1011661578870539620, guid: fe4965491bb3d5f4bb98828ba0245093, type: 3}
-  money: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
-  hit: {fileID: 8300000, guid: b65e3669dee42784b9bb591b5cbae103, type: 3}
 --- !u!54 &7328498780514748822
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -994,6 +977,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1c481db794700c46b275c8a21417bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blood: {fileID: 0}
+  player: {fileID: 5720791434960800745, guid: 234e32594511fa840bd22efe0e27b183, type: 3}
 --- !u!1 &2524986205352007230
 GameObject:
   m_ObjectHideFlags: 0

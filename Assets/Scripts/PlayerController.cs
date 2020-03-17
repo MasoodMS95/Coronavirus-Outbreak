@@ -79,18 +79,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             bulletType = "Blue";
-        } else if (Input.GetKeyDown(KeyCode.Alpha2))
+        } else if (PlayerPrefs.GetFloat("GreenBullet") == 1 && Input.GetKeyDown(KeyCode.Alpha2))
         {
             bulletType = "Green";
-        } else if (Input.GetKeyDown(KeyCode.Alpha3))
+        } else if (PlayerPrefs.GetFloat("RedBullet") == 1 && Input.GetKeyDown(KeyCode.Alpha3))
         {
             bulletType = "Red";
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            bulletType = "Blue";
-        }
-        
 
         //The following code ensures the player moves around despite direction it faces (which is towards mouse)
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -202,6 +197,8 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.name.StartsWith("FriendHouse"))
         {
+            PlayerPrefs.SetFloat("GreenBullet", 0);
+            PlayerPrefs.SetFloat("RedBullet", 0);
             SceneManager.LoadScene(12);
         }
         if (collision.gameObject.name.StartsWith("DoorToKey"))
@@ -222,7 +219,9 @@ public class PlayerController : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("HasKey", 0) == 1)
             {
-               // SceneManager.LoadScene(7);
+                // SceneManager.LoadScene(7);
+                PlayerPrefs.SetFloat("GreenBullet", 0);
+                PlayerPrefs.SetFloat("RedBullet", 0);
                 SceneManager.LoadScene(13);
 
             }
@@ -236,10 +235,14 @@ public class PlayerController : MonoBehaviour
         //    SceneManager.LoadScene(8);
         //}
         if (collision.gameObject.name.StartsWith("SceneFourCar")){
-            SceneManager.LoadScene(17);
+            PlayerPrefs.SetFloat("GreenBullet", 0);
+            PlayerPrefs.SetFloat("RedBullet", 0);
+            SceneManager.LoadScene(18);
         }
         if (collision.gameObject.name.StartsWith("StreetRail (60)"))
         {
+            PlayerPrefs.SetFloat("GreenBullet", 0);
+            PlayerPrefs.SetFloat("RedBullet", 0);
             SceneManager.LoadScene(14);
         }
         if (HellicopterReady && collision.gameObject.name.StartsWith("Heli1"))
