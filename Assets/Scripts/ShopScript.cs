@@ -30,7 +30,7 @@ public class ShopScript : MonoBehaviour
 
       }
       if (button.gameObject.name == "GreenBuyButton"){
-        if ((PlayerPrefs.GetFloat("Gold", 0)) > 4000){
+        if ((PlayerPrefs.GetFloat("Gold", 0)) >= 4000){
           if (GreenChosen.gameObject.activeInHierarchy == false){
             coin -=4000;
             PlayerPrefs.SetFloat("Gold", coin);
@@ -40,7 +40,7 @@ public class ShopScript : MonoBehaviour
         }
       }
       if (button.gameObject.name == "RedBuyButton"){
-        if ((PlayerPrefs.GetFloat("Gold", 0)) > 8000){
+        if ((PlayerPrefs.GetFloat("Gold", 0)) >= 8000){
           if (RedChosen.gameObject.activeInHierarchy == false){
             coin -=8000;
             PlayerPrefs.SetFloat("Gold", coin);

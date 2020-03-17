@@ -197,6 +197,8 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.name.StartsWith("FriendHouse"))
         {
+            PlayerPrefs.SetFloat("GreenBullet", 0);
+            PlayerPrefs.SetFloat("RedBullet", 0);
             SceneManager.LoadScene(12);
         }
         if (collision.gameObject.name.StartsWith("DoorToKey"))
@@ -217,7 +219,9 @@ public class PlayerController : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("HasKey", 0) == 1)
             {
-               // SceneManager.LoadScene(7);
+                // SceneManager.LoadScene(7);
+                PlayerPrefs.SetFloat("GreenBullet", 0);
+                PlayerPrefs.SetFloat("RedBullet", 0);
                 SceneManager.LoadScene(13);
 
             }
@@ -231,10 +235,14 @@ public class PlayerController : MonoBehaviour
         //    SceneManager.LoadScene(8);
         //}
         if (collision.gameObject.name.StartsWith("SceneFourCar")){
+            PlayerPrefs.SetFloat("GreenBullet", 0);
+            PlayerPrefs.SetFloat("RedBullet", 0);
             SceneManager.LoadScene(18);
         }
         if (collision.gameObject.name.StartsWith("StreetRail (60)"))
         {
+            PlayerPrefs.SetFloat("GreenBullet", 0);
+            PlayerPrefs.SetFloat("RedBullet", 0);
             SceneManager.LoadScene(14);
         }
         if (HellicopterReady && collision.gameObject.name.StartsWith("Heli1"))
