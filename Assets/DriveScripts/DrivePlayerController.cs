@@ -12,6 +12,7 @@ public class DrivePlayerController : MonoBehaviour
     public bool isTouchingObstacle;
     private DriveGameManager gameManager;
     private GameController gameController;
+    public int scene;
 
     // Start is called before the first frame update
     void Start()
@@ -150,7 +151,14 @@ public class DrivePlayerController : MonoBehaviour
     {
         if (other.gameObject.name.StartsWith("EndOfLevel"))
         {
-            SceneManager.LoadScene(11);
+            if (scene == 3)
+            {
+                SceneManager.LoadScene(11);
+            }
+            else if (scene == 5)
+            {
+                SceneManager.LoadScene(17);
+            }
         }
     }
 }

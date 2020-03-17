@@ -93955,6 +93955,7 @@ MonoBehaviour:
   verticalInput: 0
   maxSpeed: 30
   isTouchingObstacle: 0
+  scene: 3
 --- !u!54 &2041541974
 Rigidbody:
   m_ObjectHideFlags: 0
