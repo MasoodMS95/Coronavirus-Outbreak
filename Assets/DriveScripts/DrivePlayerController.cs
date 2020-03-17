@@ -41,7 +41,7 @@ public class DrivePlayerController : MonoBehaviour
                 }
                 gameManager.incrementSpeed(0.6f);
             }
-
+            
             else
             {
                 gameManager.setSpeed(maxSpeed);
@@ -70,7 +70,7 @@ public class DrivePlayerController : MonoBehaviour
             if (gameManager.getSpeed() > 0)
             {
                 gameManager.decrementSpeed(1.0f);
-
+                
                 if (gameManager.getSpeed() < 0)
                 {
                     gameManager.setSpeed(0);
@@ -86,7 +86,7 @@ public class DrivePlayerController : MonoBehaviour
                     gameManager.setSpeed(0);
                 }
             }
-
+            
         }
 
         transform.Translate(Vector3.forward * gameManager.getSpeed() * Time.deltaTime);
@@ -119,14 +119,9 @@ public class DrivePlayerController : MonoBehaviour
                 }
             }
         }
-        if (transform.position.z>480){
-          if ((transform.position.x>=-467)&& (transform.position.z<=-503)){
-            SceneManager.LoadScene(11);
-          }
-        }
-
+        
     }
-
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
