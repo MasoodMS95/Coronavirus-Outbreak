@@ -79,18 +79,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             bulletType = "Blue";
-        } else if (Input.GetKeyDown(KeyCode.Alpha2))
+        } else if (PlayerPrefs.GetFloat("GreenBullet") == 1 && Input.GetKeyDown(KeyCode.Alpha2))
         {
             bulletType = "Green";
-        } else if (Input.GetKeyDown(KeyCode.Alpha3))
+        } else if (PlayerPrefs.GetFloat("RedBullet") == 1 && Input.GetKeyDown(KeyCode.Alpha3))
         {
             bulletType = "Red";
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            bulletType = "Blue";
-        }
-        
 
         //The following code ensures the player moves around despite direction it faces (which is towards mouse)
         horizontalInput = Input.GetAxisRaw("Horizontal");
