@@ -45,6 +45,10 @@ public class gameManager : MonoBehaviour
         if ((PlayerPrefs.GetFloat("Health", 100f)) == 0)
         {
             PlayerPrefs.SetFloat("CurrentTime", t);
+
+            PlayerPrefs.SetFloat("GreenBullet", 0);
+            PlayerPrefs.SetFloat("RedBullet", 0);
+
             if (stage == 1)
             {
                 SceneManager.LoadScene(10);
