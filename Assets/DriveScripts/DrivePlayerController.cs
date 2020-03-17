@@ -145,4 +145,12 @@ public class DrivePlayerController : MonoBehaviour
             isTouchingObstacle = false;
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name.StartsWith("EndOfLevel"))
+        {
+            SceneManager.LoadScene(11);
+        }
+    }
 }
