@@ -157,7 +157,7 @@ public class DrivePlayerController : MonoBehaviour
             }
             else if (scene == 5)
             {
-                SceneManager.LoadScene(17);
+                SceneManager.LoadScene(20);
             }
         }
     }

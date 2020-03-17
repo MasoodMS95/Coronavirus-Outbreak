@@ -34,19 +34,19 @@ public class CheatCodes : MonoBehaviour
         {
             SceneManager.LoadScene(18);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha6)) //level 6 start screen
-        {
-            SceneManager.LoadScene(17);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha7)) //level 7 start screen
-        {
-            SceneManager.LoadScene(19);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha8)) //level 8 start screen
+        //if (Input.GetKeyDown(KeyCode.Alpha6)) //level 6 start screen
+        //{
+        //    SceneManager.LoadScene(17);
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha7)) //level 7 start screen
+        //{
+        //    SceneManager.LoadScene(19);
+        //}
+        if (Input.GetKeyDown(KeyCode.Alpha6)) //level 8 start screen
         {
             SceneManager.LoadScene(20);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha9))
+        if (Input.GetKeyDown(KeyCode.Alpha7))
         {
             SceneManager.LoadScene(23);// helicopter cut scene
         }
