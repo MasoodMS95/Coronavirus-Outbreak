@@ -2791,13 +2791,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5743756260234388125}
   - component: {fileID: 2395888762222989287}
-  - component: {fileID: 2943664202105228013}
   - component: {fileID: 279011948371697915}
-  - component: {fileID: 9101742407982813358}
   - component: {fileID: 2796453794108105719}
   - component: {fileID: 2203561168997728645}
+  - component: {fileID: 9101742407982813358}
   m_Layer: 8
-  m_Name: Zombie4
+  m_Name: RegularZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2851,22 +2850,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2943664202105228013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8786155893279723662}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a86a3adb96250fc4f9f7183479b59700, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  blood: {fileID: 1011661578870539620, guid: fe4965491bb3d5f4bb98828ba0245093, type: 3}
-  money: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
-  hit: {fileID: 8300000, guid: b65e3669dee42784b9bb591b5cbae103, type: 3}
 --- !u!54 &279011948371697915
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2883,24 +2866,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 20
   m_CollisionDetection: 0
---- !u!114 &9101742407982813358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8786155893279723662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627dc3e4df66f45e7bbc4e8c189d07de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  blood: {fileID: 1011661578870539620, guid: fe4965491bb3d5f4bb98828ba0245093, type: 3}
-  money: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
-  hit: {fileID: 8300000, guid: b65e3669dee42784b9bb591b5cbae103, type: 3}
-  xRange: 10
-  zRange: 10
 --- !u!65 &2796453794108105719
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3010,6 +2975,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &9101742407982813358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8786155893279723662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627dc3e4df66f45e7bbc4e8c189d07de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  blood: {fileID: 1011661578870539620, guid: fe4965491bb3d5f4bb98828ba0245093, type: 3}
+  money: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
+  hit: {fileID: 8300000, guid: b65e3669dee42784b9bb591b5cbae103, type: 3}
+  xRange: 10
+  zRange: 10
 --- !u!1 &8905804271921596447
 GameObject:
   m_ObjectHideFlags: 0
