@@ -9,14 +9,11 @@ public class FollowPlayer : MonoBehaviour
     private float finalposx = 8f;
     public float diffx = 0;
     public float spotangle = 0;
-    Light lt;
 
     void Start()
     {
-      lt = GetComponent<Light>();
       diffx = (finalposx - transform.position.x);
       spotangle = 50 + (diffx*4);
-      lt.spotAngle = spotangle;
     }
 
     void Update()
@@ -24,6 +21,5 @@ public class FollowPlayer : MonoBehaviour
       transform.position = new Vector3(player.transform.position.x, player.transform.position.y + posy, player.transform.position.z);
       diffx = (finalposx - transform.position.x);
       spotangle = 50 + (diffx*4);
-      lt.spotAngle = spotangle;
     }
 }

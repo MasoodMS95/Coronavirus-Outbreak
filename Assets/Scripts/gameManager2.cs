@@ -10,7 +10,7 @@ public class gameManager2 : MonoBehaviour
     public static PlayerController player;
     public GameObject Player;
     //Timer and text code provided by youtube guide https://youtu.be/x-C95TuQtf0
-    private Text timer, gold;
+    private Text gold;
     public float startTime;
     public float spawnDist = 10;
     public float zombiey = 0;
@@ -22,7 +22,6 @@ public class gameManager2 : MonoBehaviour
     {
         StartCoroutine(spawnner());
         startTime = Time.time;
-        timer = GameObject.Find("Timer").GetComponent<Text>();
         gold = GameObject.Find("Gold").GetComponent<Text>();
         healthBar = GameObject.Find("Health");
     }
@@ -33,7 +32,6 @@ public class gameManager2 : MonoBehaviour
         float t = Time.time - startTime;
         string minutes = ((int)(t / 60)).ToString();
         string seconds = (t % 60).ToString("f2");
-        timer.text = "TIME: " + minutes + ":" + seconds;
         healthBar.transform.localScale = new Vector3(PlayerPrefs.GetFloat("Health", 100f) / 100, 0.17156f);
         gold.text = PlayerPrefs.GetFloat("Gold", 0).ToString() + " Gold";
         if ((PlayerPrefs.GetFloat("Health", 100f)) == 0)

@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombieSpawner: {fileID: 4493914613880827488, guid: 6dc4cf4496348884d8ee27743ae38562,
     type: 3}
-  Player: {fileID: 0}
+  Player: {fileID: 1018494718}
   startTime: 0
   spawnDist: 10
   zombiey: 0
@@ -1036,7 +1036,7 @@ MonoBehaviour:
     type: 3}
   projectileZombie: {fileID: 0}
   bombZombie: {fileID: 0}
-  Player: {fileID: 0}
+  Player: {fileID: 1018494718}
   startTime: 0
   spawnDist: 10
   zombiey: 0

@@ -183,7 +183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4264754401751234, guid: 39868262e399a4c48bf3739708613d2b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.93
+      value: 9.45
       objectReference: {fileID: 0}
     - target: {fileID: 4264754401751234, guid: 39868262e399a4c48bf3739708613d2b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -224,6 +224,11 @@ PrefabInstance:
     - target: {fileID: 4264754401751234, guid: 39868262e399a4c48bf3739708613d2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114400655283542936, guid: 39868262e399a4c48bf3739708613d2b,
+        type: 3}
+      propertyPath: txtToDisplay
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39868262e399a4c48bf3739708613d2b, type: 3}
@@ -682,6 +687,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114400655283542936, guid: 39868262e399a4c48bf3739708613d2b,
+        type: 3}
+      propertyPath: txtToDisplay
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39868262e399a4c48bf3739708613d2b, type: 3}
 --- !u!1001 &1405657196
@@ -738,6 +748,11 @@ PrefabInstance:
     - target: {fileID: 4264754401751234, guid: 39868262e399a4c48bf3739708613d2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114400655283542936, guid: 39868262e399a4c48bf3739708613d2b,
+        type: 3}
+      propertyPath: txtToDisplay
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39868262e399a4c48bf3739708613d2b, type: 3}
@@ -1037,7 +1052,7 @@ MonoBehaviour:
     type: 3}
   projectileZombie: {fileID: 0}
   bombZombie: {fileID: 0}
-  Player: {fileID: 0}
+  Player: {fileID: 1410105676}
   startTime: 0
   spawnDist: 10
   zombiey: 0
