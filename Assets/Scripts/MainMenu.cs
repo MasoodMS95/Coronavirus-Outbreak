@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -26,8 +27,13 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(22);
     }
+    public void returnToLevelScreen(){
+      string sceneName = PlayerPrefs.GetString("lastLoadedScene");
+      SceneManager.LoadScene(sceneName);//back to previous scene
+    }
     public void Shop()
     {
+        PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
         SceneManager.LoadScene(9);
     }
     public void SceneScreen()
