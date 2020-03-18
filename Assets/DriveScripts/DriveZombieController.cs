@@ -13,6 +13,7 @@ public class DriveZombieController : MonoBehaviour
     public float speed = 2f;
     public GameObject zombieHead;
     public GameObject zombieBody;
+    public GameObject money;
     private DriveGameManager driveGameManager;
     private float currentDamageToPlayer;
     private bool canDamagePlayer;
@@ -49,7 +50,7 @@ public class DriveZombieController : MonoBehaviour
             agent.SetDestination(target.position);
         }
     }
-    
+
     private void OnCollisionEnter(Collision collision)
     {
         if ((collision.collider.CompareTag("Car") && driveGameManager.getSpeed() >= 20f) ||
@@ -61,7 +62,7 @@ public class DriveZombieController : MonoBehaviour
             Instantiate(zombieBody, spawnPosBody, gameObject.transform.rotation);
             Destroy(gameObject);
         }
-        if(collision.collider.CompareTag("CarVulnerable") && driveGameManager.getSpeed() < 20)
+        if (collision.collider.CompareTag("CarVulnerable") && driveGameManager.getSpeed() < 20)
         {
             if (canDamagePlayer)
             {
@@ -72,27 +73,21 @@ public class DriveZombieController : MonoBehaviour
                 }
                 currentDamageToPlayer += 7;
             }
-            
+
             if (currentDamageToPlayer >= 30)
             {
                 canDamagePlayer = false;
             }
         }
-        
-        
-        //if(collision.gameObject.CompareTag("Car"))
-        //{
-        //    Destroy(gameObject);
-            //transform.Translate(-Vector3.forward * Time.deltaTime * 5f);
-            //StartCoroutine(KillZombie());
-        //}
     }
 
-    private IEnumerator KillZombie()
+    private void OnDestroy()
     {
-        yield return new WaitForSeconds(3f);
-        transform.Translate(-Vector3.forward * Time.deltaTime * 5f);
-        
-        //Destroy(gameObject);
+        if (Random.value > 0.6)
+        {
+            Vector3 moneyOffset = new Vector3(0, 3, 0);
+            GameObject goldcoin = (GameObject)Instantiate(money, transform.position + moneyOffset, money.transform.rotation);
+            Destroy(goldcoin, 5);
+        }
     }
 }

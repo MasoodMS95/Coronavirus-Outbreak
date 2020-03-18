@@ -2470,6 +2470,7 @@ MonoBehaviour:
     type: 3}
   zombieBody: {fileID: 8352655380410162312, guid: 389ac6ccf2f551a4b96aca900a12bb7e,
     type: 3}
+  money: {fileID: 3625044464404496940, guid: 72c82af0501dbdf42a4ef9d64551688e, type: 3}
 --- !u!195 &3756490570681958222
 NavMeshAgent:
   m_ObjectHideFlags: 0

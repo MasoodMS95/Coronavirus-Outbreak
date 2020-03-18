@@ -120,6 +120,14 @@ public class DrivePlayerController : MonoBehaviour
                 }
             }
         }
+
+        if (scene == 7)
+        {
+            if (gameObject.transform.position.y < 2.0f)
+            {
+                PlayerPrefs.SetFloat("Health", 0);
+            }
+        }
         
     }
     
@@ -136,6 +144,12 @@ public class DrivePlayerController : MonoBehaviour
                     PlayerPrefs.SetFloat("Health", 0);
                 }
             }
+        }
+        if (collision.gameObject.CompareTag("DriveCoin"))
+        {
+            System.Random rnd = new System.Random();
+            PlayerPrefs.SetFloat("Gold", (PlayerPrefs.GetFloat("Gold") + rnd.Next(100, 501)));
+            Destroy(collision.gameObject);
         }
     }
 
@@ -156,6 +170,10 @@ public class DrivePlayerController : MonoBehaviour
                 SceneManager.LoadScene(11);
             }
             else if (scene == 5)
+            {
+                SceneManager.LoadScene(25);
+            }
+            else if (scene == 7)
             {
                 SceneManager.LoadScene(20);
             }
