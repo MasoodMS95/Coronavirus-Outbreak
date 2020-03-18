@@ -27,6 +27,11 @@ public class gameManager : MonoBehaviour
         startTime = Time.time;
         gold = GameObject.Find("Gold").GetComponent<Text>();
         healthBar = GameObject.Find("Health");
+
+        if (stage == 1)
+        {
+            PlayerPrefs.SetFloat("Gold", 0);
+        }
     }
 
     // Update is called once per frame
@@ -40,6 +45,10 @@ public class gameManager : MonoBehaviour
         if ((PlayerPrefs.GetFloat("Health", 100f)) == 0)
         {
             PlayerPrefs.SetFloat("CurrentTime", t);
+
+            PlayerPrefs.SetFloat("GreenBullet", 0);
+            PlayerPrefs.SetFloat("RedBullet", 0);
+
             if (stage == 1)
             {
                 SceneManager.LoadScene(10);

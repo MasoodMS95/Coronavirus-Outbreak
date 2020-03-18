@@ -14,4 +14,8 @@ public class currCoins : MonoBehaviour
         string gold = PlayerPrefs.GetFloat("Gold", 0).ToString() + " Gold";
         currText.text = gold;
     }
+    void Update(){
+      string gold = PlayerPrefs.GetFloat("Gold", 0).ToString() + " Gold";
+      currText.text = gold;
+    }
 }
