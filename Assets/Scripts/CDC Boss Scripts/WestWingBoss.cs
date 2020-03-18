@@ -19,6 +19,10 @@ public class WestWingBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(transform.position.y > 1)
+        {
+            transform.Translate(transform.position.x, 1, transform.position.z);
+        }
         if(Time.time - time == 15)
         {
             speed = 10f;
