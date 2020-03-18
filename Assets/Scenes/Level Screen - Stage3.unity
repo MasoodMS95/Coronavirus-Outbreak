@@ -798,7 +798,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 187, y: 127.1}
+  m_AnchoredPosition: {x: 139, y: 127.1}
   m_SizeDelta: {x: 948.5, y: 81.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1121676062
@@ -819,7 +819,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 3: Driving Scene'
+  m_text: 'Level 3: Finding the Bunker'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -888,10 +888,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 49.46817, z: 222.97618, w: -24.303146}
   m_textInfo:
     textComponent: {fileID: 1121676062}
-    characterCount: 22
+    characterCount: 27
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 4
+    spaceCount: 4
+    wordCount: 5
     linkCount: 0
     lineCount: 1
     pageCount: 1

@@ -1129,7 +1129,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 1: Neighborhood Scene
+  m_text: 'Level 1: Neighborhood Outbreak
 
 '
   m_isRightToLeft: 0
@@ -1159,8 +1159,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 51
+  m_fontSizeBase: 51
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1200,7 +1200,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 49.46817, z: -355.61075, w: -24.303146}
   m_textInfo:
     textComponent: {fileID: 1460152131}
-    characterCount: 28
+    characterCount: 31
     spriteCount: 0
     spaceCount: 4
     wordCount: 4
