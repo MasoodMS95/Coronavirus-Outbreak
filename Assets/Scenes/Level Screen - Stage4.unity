@@ -1185,7 +1185,7 @@ MonoBehaviour:
 
     Mission: 2 years has passed! The cure for COVID has been discovered. However,
     the virus has spread to animals as well. Leave the bunker and head back to your
-    car to drive to the CDC lab.
+    car!
 
 
     Hint: Follow the coin path that will lead you back to your car. Avoid the infected
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 189
+  m_firstOverflowCharacterIndex: 165
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1259,10 +1259,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 49.46817, z: -355.61075, w: -210.93974}
   m_textInfo:
     textComponent: {fileID: 1858956056}
-    characterCount: 398
+    characterCount: 374
     spriteCount: 0
-    spaceCount: 78
-    wordCount: 77
+    spaceCount: 72
+    wordCount: 71
     linkCount: 0
     lineCount: 8
     pageCount: 1
